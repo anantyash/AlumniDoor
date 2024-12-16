@@ -5,24 +5,23 @@ import { Button } from "@mui/material";
 function HeroSection() {
   return (
     <div // this div is container of all hero section
-      className=" w-lvw  flex text-center items-center"
+      className=" w-lvw flex flex-col-reverse md:flex-row text-center items-center"
     >
       <div //this is use for left side written part
-        className="w-3/5 h-96 pl-5 flex justify-evenly flex-col selection:bg-green-400 "
+        className="md:w-3/5 md:h-96 p-4 md:pl-5 flex md:justify-evenly gap-8 flex-col selection:bg-green-400 "
       >
         <h1 className="text-6xl text-brown ">Connect. Inspire. Thrive.</h1>
         <p className="  text-lg px-10 font-sans    ">
           <span className="font-medium text-xl">
             Empowering connections, inspiring success:
           </span>
-          Our platform bridges <br /> alumni and students to build a supportive
-          community for mentorship, <br />
-          networking, and lifelong learning.
+          Our platform bridges alumni and students to build a supportive
+          community for mentorship, networking, and lifelong learning.
         </p>
         <p className="text-lg px-10 font-sans">
           {" "}
-          Together, we create opportunities, celebrate achievements, and <br />
-          drive growth for a brighter future.
+          Together, we create opportunities, celebrate achievements, and drive
+          growth for a brighter future.
         </p>
 
         <div //this contain buttons
@@ -43,7 +42,7 @@ function HeroSection() {
         </div>
       </div>
       <div //this is used for right part only for image
-        className="  w-2/5 h-auto "
+        className=" w-11/12 md:w-2/5 h-auto "
       >
         <img src={landingimg} alt="Image" className="w-full h-auto" />
       </div>
