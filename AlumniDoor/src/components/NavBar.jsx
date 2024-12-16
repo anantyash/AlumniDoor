@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 
 function NavBar() {
   return (
-    <div className="h-lvh w-lvw m-0 p-0">
+    <div className="h-fit w-lvw m-0 p-0">
       <div className=" w-auto   flex items-center justify-between px-5 py-1"> {/*bg-green-300*/}
         <div className="w-fit rounded-3xl flex-initial pt-2">
           <img src={logo} alt="" srcset="" className="max-w-72" />

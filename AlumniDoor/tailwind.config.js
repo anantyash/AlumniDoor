@@ -6,7 +6,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   important: "#root",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brown: "#8D4033",
+      },
+    },
   },
   plugins: [],
 };
