@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo2.png";
-// import  from "@mui/material/Button";
-import {Button, IconButton } from "@mui/material";
+
+import { Button, IconButton } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const NavBar = ({ page }) => {
+  const [mode, setMode] = useState(true);
+
+  const handletheme =()=>{
+    setMode(!mode)
+  }
+
   return (
     <>
       {page === "LandingPage" && (
@@ -134,8 +144,30 @@ const NavBar = ({ page }) => {
           </nav> */}
           <div // For SignUp/login Button
           >
-            <IconButton>
-
+            {mode === true && (
+              <IconButton
+                className="text-green-600 hover:bg-green-100 mr-4 transition-transform"
+                onClick={handletheme}
+                
+              >
+                <LightModeIcon className="text-4xl" />
+              </IconButton>
+            )}
+            {mode === false && (
+              <IconButton
+                className="text-green-600 hover:bg-green-100 mr-4 transition-transform"
+                onClick={() => {
+                  setMode(!mode);
+                }}
+              >
+                <DarkModeIcon className="text-4xl" />
+              </IconButton>
+            )}
+            <IconButton className="text-green-600 hover:bg-green-100 mr-4">
+              <NotificationsIcon className="text-4xl" />
+            </IconButton>
+            <IconButton className="text-green-600 hover:bg-green-100 ">
+              <AccountCircleIcon className="text-5xl" />
             </IconButton>
           </div>
         </div>
