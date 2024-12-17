@@ -7,11 +7,10 @@ import Footer from "../components/Footer";
 function LandingPage() {
   return (
     <>
-      <NavBar /> 
+      <NavBar page="LandingPage" />
       <HeroSection />
-      
-      <QuickLinks/>
-      <Footer/>
+      <QuickLinks />
+      <Footer />
     </>
   );
 }
