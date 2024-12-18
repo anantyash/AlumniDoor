@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import logo from "../assets/logo2.png";
+import avatarimg from "../assets/avatarimg.png";
 
-import { Button, IconButton } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Button, IconButton, Avatar } from "@mui/material";
+// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 const NavBar = ({ page }) => {
   const [mode, setMode] = useState(true);
@@ -19,6 +20,7 @@ const NavBar = ({ page }) => {
 
   return (
     <>
+      {/* For Landing Page Nav Bar */}
       {page === "LandingPage" && (
         <div // Nav Container
           className=" w-auto h-fit flex md:items-center justify-between px-5 py-1 md:gap-0"
@@ -32,25 +34,29 @@ const NavBar = ({ page }) => {
           </div>
           <div className="w-fit h-fit self-center ">
             <div className="md:hidden">
-              {openMenu===false &&(
+              {openMenu === false && (
                 <IconButton
-                className='text-green-400 hover:bg-green-50 transition-transform ease-in-out delay-300'
-                onClick={()=>{setOpenMenu(!openMenu)}}
-              >
-                <MenuIcon  />
-              </IconButton>)}
-              {openMenu===true &&(
+                  className="text-green-400 hover:bg-green-50 transition-transform ease-in-out delay-300"
+                  onClick={() => {
+                    setOpenMenu(!openMenu);
+                  }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              )}
+              {openMenu === true && (
                 <IconButton
-                className='text-green-400 hover:bg-green-50'
-                onClick={()=>{setOpenMenu(!openMenu)}}
-              >
-                <CloseIcon  />
-              </IconButton>)}
-            
+                  className="text-green-400 hover:bg-green-50"
+                  onClick={() => {
+                    setOpenMenu(!openMenu);
+                  }}
+                >
+                  <CloseIcon />
+                </IconButton>
+              )}
             </div>
             <nav //For Nav Link
-            
-              className=''
+              className=""
             >
               <ul
                 className="flex flex-col gap-4
@@ -121,12 +127,13 @@ const NavBar = ({ page }) => {
           </div>
         </div>
       )}
+
+      {/* For Dashboard Nav Bar  */}
       {page === "Dashboard" && (
         <div // Nav Container
           className=" w-auto h-fit flex items-center justify-between px-2 md:px-5 py-1"
         >
           {" "}
-        
           <div //For Contain Image
             className="w-fit rounded-3xl flex-initial pt-2"
           >
@@ -161,8 +168,8 @@ const NavBar = ({ page }) => {
             <IconButton className="text-green-600 hover:bg-green-100 md:mr-4">
               <NotificationsIcon className="md:text-4xl" />
             </IconButton>
-            <IconButton className="text-green-600 hover:bg-green-100 ">
-              <AccountCircleIcon className="md:text-5xl" />
+            <IconButton className="text-green-600 hover:bg-green-100 md:mr-4">
+              <Avatar alt="Avatar Placeholde " src={avatarimg} />
             </IconButton>
           </div>
         </div>
