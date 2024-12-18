@@ -10,8 +10,8 @@ function App() {
   return (
     <StyledEngineProvider injectFirst>
       <>
-        {/* <LandingPage /> */}
-        <Dashboard/>
+        <LandingPage />
+        {/* <Dashboard/> */}
       </>
     </StyledEngineProvider>
   );
