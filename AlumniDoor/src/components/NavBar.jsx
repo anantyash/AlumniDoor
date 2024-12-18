@@ -3,7 +3,6 @@ import logo from "../assets/logo2.png";
 import avatarimg from "../assets/avatarimg.png";
 
 import { Button, IconButton, Avatar } from "@mui/material";
-// import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
@@ -12,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const NavBar = ({ page }) => {
   const [mode, setMode] = useState(true);
-  const [openMenu, setOpenMenu] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const handletheme = () => {
     setMode(!mode);
@@ -56,7 +55,7 @@ const NavBar = ({ page }) => {
               )}
             </div>
             <nav //For Nav Link
-              className=""
+              className={!openMenu ? "hidden" : "flex"}
             >
               <ul
                 className="flex flex-col gap-4
