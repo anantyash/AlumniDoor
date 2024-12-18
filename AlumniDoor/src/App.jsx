@@ -5,13 +5,15 @@ import LandingPage from "./Pages/LandingPage";
 
 import { StyledEngineProvider } from "@mui/material";
 import Dashboard from "./Pages/Dashboard";
+import Mentorship from "./Pages/Mentorship";
 
 function App() {
   return (
     <StyledEngineProvider injectFirst>
       <>
-        <LandingPage />
+        {/* <LandingPage /> */}
         {/* <Dashboard/> */}
+        <Mentorship/>
       </>
     </StyledEngineProvider>
   );
