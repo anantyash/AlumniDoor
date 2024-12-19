@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import logo from "../assets/logo2.png";
 import avatarimg from "../assets/avatarimg.png";
 
-import { Button, IconButton, Avatar } from "@mui/material";
+import { Button, IconButton, Avatar, Divider } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = ({ page }) => {
   const [mode, setMode] = useState(true);
@@ -29,7 +30,9 @@ const NavBar = ({ page }) => {
           <div //For Contain Logo Image
             className="w-fit rounded-3xl flex-initial pt-2"
           >
-            <img src={logo} alt="" srcset="" className="max-w-72" />
+            <Link to="/">
+              <img src={logo} alt="" srcset="" className="max-w-72" />
+            </Link>
           </div>
           <div className="w-fit h-fit self-center ">
             <div className="md:hidden">
@@ -55,29 +58,30 @@ const NavBar = ({ page }) => {
               )}
             </div>
             <nav //For Nav Link
-              className={!openMenu ? "hidden" : "flex"}
+              className={!openMenu ? "hidden md:flex" : "flex"}
             >
               <ul
                 className="flex flex-col gap-4
                 md:flex-row md:static 
                 md:p-0  md:bg-inherit
                 px-10 py-5 rounded-md
-            right-16 top-16 
-            fixed
-            justify-evenly 
-            font-bold 
-            list-none 
-            bg-green-200
-
+                right-16 top-16 
+                fixed 
+                justify-evenly 
+                font-bold 
+                list-none 
+                bg-green-200
              "
               >
                 <li>
-                  <Button
-                    variant="text"
-                    className="text-green-500 hover:bg-green-100 font-semibold"
-                  >
-                    Home
-                  </Button>
+                  <NavLink to="/">
+                    <Button
+                      variant="text"
+                      className="text-green-500 hover:bg-green-100 font-semibold"
+                    >
+                      Home
+                    </Button>
+                  </NavLink>
                 </li>
                 <li>
                   <Button
@@ -104,25 +108,43 @@ const NavBar = ({ page }) => {
                   </Button>
                 </li>
                 <li>
-                  <Button
-                    variant="text"
-                    className="text-green-500 hover:bg-green-100 font-semibold"
-                  >
-                    Dashboard
-                  </Button>
+                  <NavLink to="/dashboard">
+                    <Button
+                      variant="text"
+                      className="text-green-500 hover:bg-green-100 font-semibold"
+                    >
+                      Dashboard
+                    </Button>
+                  </NavLink>
                 </li>
               </ul>
             </nav>
           </div>
           <div // For SignUp/login Button
-            className="hidden md:inline-block"
+            className="hidden md:flex flex-row gap-1 p-2 rounded-md bg-green-600 drop-shadow-md shadow-lg "
           >
-            <Button
-              className="text-slate-50 bg-green-600 font-semibold hover:bg-green-400"
-              variant="contained"
-            >
-              SignUp / Login
-            </Button>
+            <Link to="/signup" className="h-full">
+              <Button
+                className="text-slate-50 bg-green-600 font-semibold w-1/2 h-full hover:bg-green-500 shadow-none hover:drop-shadow-md p-1"
+                variant="contained"
+              >
+                SignUp
+              </Button>
+            </Link>
+            <Divider
+              orientation="vertical"
+              variant="middle"
+              flexItem
+              className="bg-white border-r-2 border-white border-solid"
+            />
+            <Link to="/login">
+              <Button
+                className="text-slate-50 bg-green-600 font-semibold hover:bg-green-400 h-full w-1/2 p-1 shadow-none hover:drop-shadow-md "
+                variant="contained"
+              >
+                Login
+              </Button>
+            </Link>
           </div>
         </div>
       )}
@@ -136,12 +158,14 @@ const NavBar = ({ page }) => {
           <div //For Contain Image
             className="w-fit rounded-3xl flex-initial pt-2"
           >
-            <img
-              src={logo}
-              alt="Logo"
-              srcset=""
-              className="max-w-64 md:max-w-72"
-            />
+            <Link to="/">
+              <img
+                src={logo}
+                alt="Logo"
+                srcset=""
+                className="max-w-64 md:max-w-72"
+              />
+            </Link>
           </div>
           <div // For Icons
             className=" px-2"

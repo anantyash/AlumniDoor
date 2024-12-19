@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import networkimg from "../assets/networkimg.png";
 import { Card, CardActionArea, CardContent } from "@mui/material";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
@@ -16,28 +17,38 @@ function Dashboard() {
             <Card className="h-full flex text-center rounded-xl shadow-md elevation-4 ">
               <CardActionArea>
                 <CardContent>
-                  <h3 className=" text-2xl md:text-3xl text-brown">Networking Hub</h3>
+                  <h3 className=" text-2xl md:text-3xl text-brown">
+                    Networking Hub
+                  </h3>
                 </CardContent>
               </CardActionArea>
             </Card>
           </div>
           <div className=" h-36 border-4 border-green-800 border-solid rounded-xl ">
-            <Card className="h-full flex text-center rounded-xl shadow-md elevation-4">
-              <CardActionArea>
-                <CardContent>
-                  <h3 className="text-2xl md:text-3xl text-brown">Mentorship Program</h3>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            <Link to="/mentorship-program" className="no-underline">
+              <Card className="h-full flex text-center rounded-xl shadow-md elevation-4">
+                <CardActionArea>
+                  <CardContent>
+                    <h3 className="text-2xl md:text-3xl text-brown">
+                      Mentorship Program
+                    </h3>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Link>
           </div>
           <div className=" h-36 border-4 border-green-800 border-solid rounded-xl">
+          <Link to="/donation-page" className="no-underline">
             <Card className="h-full flex text-center rounded-xl shadow-md elevation-4">
               <CardActionArea>
                 <CardContent>
-                  <h3 className="text-2xl md:text-3xl text-brown">Donation Portal</h3>
+                  <h3 className="text-2xl md:text-3xl text-brown">
+                    Donation Portal
+                  </h3>
                 </CardContent>
               </CardActionArea>
             </Card>
+            </Link>
           </div>
           <div className=" h-36 border-4 border-green-800 border-solid rounded-xl">
             <Card className="h-full flex text-center rounded-xl shadow-md elevation-4">
@@ -50,8 +61,6 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
-      <Footer/>
     </>
   );
 }

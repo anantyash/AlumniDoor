@@ -92,7 +92,9 @@ function Mentorship() {
             Launch a project, <br />
             Land your dream career.
           </p>
-          <h3 className="text-6xl pb-10">One-on-1 Mentorship <br /> Program</h3>
+          <h3 className="text-6xl pb-10">
+            One-on-1 Mentorship <br /> Program
+          </h3>
           <Paper // its just a container treat it like Div
             className=" self-center md:w-full flex flex-col md:flex-row bg-green-50 outline-1 h-full md:h-fit outline-green-600 outline"
             component="form"
@@ -116,35 +118,31 @@ function Mentorship() {
             </Button>
           </Paper>
 
-          <div className="mt-8 md:mt-20 flex justify-evenly ">
-          <Card className="w-fit font-sans bg-transparent"
-          variant="">
-            <CardContent>
-            <h3 className="py-2"> 50,000 +</h3>
-            <p >Availabe Mentors</p>
+          <div 
+          className="mt-8 md:mt-20 flex justify-evenly ">
+            <Card className="w-fit font-sans bg-transparent" variant="">
+              <CardContent>
+                <h3 className="py-2"> 50,000 +</h3>
+                <p>Availabe Mentors</p>
+              </CardContent>
+            </Card>
+            <Card className="w-fit font-sans bg-transparent" variant="">
+              <CardContent>
+                <h3 className="py-2">10,000 +</h3>
+                <p>Matches Made</p>
+              </CardContent>
+            </Card>
 
-            </CardContent>
-          </Card>
-          <Card className="w-fit font-sans bg-transparent"
-          variant="">
-            <CardContent>
-            <h3 className="py-2">10,000 +</h3>
-            <p>Matches Made</p>
-
-            </CardContent>
-          </Card>
-          
-          <Card // This card is invisible but still present here (remove invisible styling to show)
-          className="w-fit hidden md:inline-block md:invisible"
-          variant="outlined">
-            <CardContent>
-            <h3>50,000+</h3>
-            <p>Availabe Mentor</p>
-
-            </CardContent>
-          </Card>
+            <Card // This card is invisible but still present here (remove invisible styling to show)
+              className="w-fit hidden md:inline-block md:invisible"
+              variant="outlined"
+            >
+              <CardContent>
+                <h3>50,000+</h3>
+                <p>Availabe Mentor</p>
+              </CardContent>
+            </Card>
           </div>
-          
         </div>
         <div // Image Container
           className="md:w-2/6 self-center p-9 md:pr-10 md:py-10 "
@@ -153,7 +151,7 @@ function Mentorship() {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
