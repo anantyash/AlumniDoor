@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 function Mentorship() {
   return (
     <>
-      <NavBar page="Dashboard" />
+      {/* <NavBar page="Dashboard" /> */}
       <div //For Second Navigation
         className=" flex px-3 shadow-lg py-2 md:py-0 sticky top-0 bg-white"
       >

@@ -2,51 +2,63 @@ import React, { useState } from "react";
 import bgimg from "../assets/bgimg.png";
 import { Button, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { useUser } from "../context/UserContext";
 
 function SignUp() {
   const [checked, setChecked] = useState("");
-  const [isselect, setIsSelect] = useState('false')
+  const [isselect, setIsSelect] = useState("");
+  const [user_Name, setUser_Name] = useState('')
+  const [full_Name, setFull_Name] = useState('')
+  const [pwd, setPwd] = useState('')
+  
+  // Context Input
+  const { addUser } = useUser();
+
+  const handleSubmit = (e) => {
+    e.prevent.Default()
+  };
+  // const {}
+
   return (
     <div className="w-full h-auto flex justify-center px-16 py-10">
       <div className="w-4/5 flex justify-center ">
         <div className="flex flex-col text-center  w-fit drop-shadow-2xl shadow-lg p-5 rounded-2xl bg-green-200">
           <h1>Sign Up</h1>
-          <form className="w-fit flex flex-col p-5 self-center gap-6">
+          <form
+            onSubmit={handleSubmit}
+            className="w-fit flex flex-col p-5 self-center gap-6"
+          >
             <div className="flex self-center gap-10">
               <fieldset className="inline-block border-none font-semibold">
-              <input
-                id="alumni-radio"
-                type="radio"
-                name="id"
-                value={isselect}
-                onChange={() => {
-                  setIsSelect('alumni');
-                }}
-                className="pt-2"
-              />
-              <label htmlFor="alumni-radio" className="font-sans px-1">
-                Alumni
-              </label>
-
+                <input
+                  id="alumni-radio"
+                  type="radio"
+                  name="user"
+                  value={isselect}
+                  onChange={() => {
+                    setIsSelect("alumni");
+                  }}
+                  className="pt-2"
+                />
+                <label htmlFor="alumni-radio" className="font-sans px-1">
+                  Alumni
+                </label>
               </fieldset>
+
               <fieldset className="inline-block border-none font-semibold">
-              <input
-                id="student-radio"
-                type="radio"
-                name="id"
-                value={isselect}
-                onChange={() => {
-                  setIsSelect('student');
-                }}
-               
-              />
-              <label htmlFor="student-radio" className="font-sans px-1">
-                Student
-              </label>
-
+                <input
+                  id="student-radio"
+                  type="radio"
+                  name="user"
+                  value={isselect}
+                  onChange={() => {
+                    setIsSelect("student");
+                  }}
+                />
+                <label htmlFor="student-radio" className="font-sans px-1">
+                  Student
+                </label>
               </fieldset>
-            
             </div>
             <TextField
               id="fullname"
@@ -55,6 +67,8 @@ function SignUp() {
               size="small"
               color="success"
               required
+              value={full_Name}
+              onChange={(e)=>setFull_Name(e.target.value)}
             />
             <TextField
               id="email"
@@ -64,6 +78,8 @@ function SignUp() {
               size="small"
               color="success"
               required
+              value={user_Name}
+              onChange={(e)=>setUser_Name(e.target.value)}
             />
             <TextField
               id="outlined-basic"
@@ -72,6 +88,8 @@ function SignUp() {
               variant="outlined"
               size="small"
               color="success"
+              value={pwd}
+              onChange={(e)=>setPwd(e.target.value)}
             />
             <TextField
               id="outlined-basic"
@@ -80,6 +98,8 @@ function SignUp() {
               type="password"
               size="small"
               color="success"
+              value={pwd}
+              onChange={(e)=>setPwd(e.target.value)}
             />
             <div>
               <input
@@ -95,9 +115,17 @@ function SignUp() {
                 I agree with the Terms & Condition of Clarity
               </label>
             </div>
-            <Button type="submit" variant="contained" className="bg-green-600 hover:bg-green-500">Create account</Button>
+            <Button
+              type="submit"
+              variant="contained"
+              className="bg-green-600 hover:bg-green-500"
+            >
+              Create account
+            </Button>
           </form>
-          <p className="">Already have an account? <Link to='/login'>LogIn</Link></p> 
+          <p className="">
+            Already have an account? <Link to="/login">LogIn</Link>
+          </p>
         </div>
         <div //Img Container
           className="w-1/2 h-auto self-center bg-green-300 pb-14 rounded-r-2xl"

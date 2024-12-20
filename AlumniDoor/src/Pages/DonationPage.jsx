@@ -8,7 +8,7 @@ import { Button, Card, CardContent } from "@mui/material";
 function DonationPage() {
   return (
     <>
-      <NavBar page="Dashboard" />
+
       <div className="flex bg-green-100 py-6">
         <div className="flex md:flex-row-reverse bg-green-200 py-6">
           <div className="w-3/5 bg-green-300">

@@ -1,24 +1,30 @@
-import React from "react";
-import Signin from "./Pages/Signin";
-import SignUp from "./components/SignUp";
-import LandingPage from "./Pages/LandingPage";
+import React, { useState } from "react";
 
-import { StyledEngineProvider } from "@mui/material";
-import Dashboard from "./Pages/Dashboard";
-import Mentorship from "./Pages/Mentorship";
-import NavBar from "./components/NavBar";
-import { Outlet } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
+import { Userprovider, useUser } from "./context/UserContext";
 
 function App() {
+  const { isAuth } = useUser();
+  const [users, setUsers] = useState([]);
+
+  const newUser = (user) => {
+    setUsers((prev) => [{ id: Date.now(), ...user }, ...prev]);
+  };
   return (
     <>
-      {/* <NavBar page=" " /> */}
-      <Outlet />
-      <Footer />
-      {/* <LandingPage /> */}
-      {/* <Dashboard/> */}
-      {/* <Mentorship/> */}
+      <Userprovider value={{ newUser, isAuth }}>
+        {/* Public Routes */}
+
+        {/* Authentic Routes */}
+
+        {/* <NavBar page=" " /> */}
+        <Outlet />
+        <Footer />
+        {/* <LandingPage /> */}
+        {/* <Dashboard/> */}
+        {/* <Mentorship/> */}
+      </Userprovider>
     </>
   );
 }

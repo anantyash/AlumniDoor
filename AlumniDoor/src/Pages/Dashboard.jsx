@@ -1,19 +1,17 @@
 import React from "react";
-import NavBar from "../components/NavBar";
-import networkimg from "../assets/networkimg.png";
 import { Card, CardActionArea, CardContent } from "@mui/material";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
     <>
-      <NavBar page="Dashboard" />
+      {/* <NavBar page="Dashboard" /> */}
       <div //Container
         className="w-lvw  h-fit flex justify-center md:py-5 overflow-hidden"
       >
         <div className="grid md:grid-cols-2 w-5/6 justify-evenly py-5 md:p-10 text-center gap-5 md:gap-10 bg-green-300 rounded-lg">
           <div className=" h-36 border-4 border-green-800 border-solid rounded-xl ">
+          <Link to="/network" className="no-underline">
             <Card className="h-full flex text-center rounded-xl shadow-md elevation-4 ">
               <CardActionArea>
                 <CardContent>
@@ -23,6 +21,7 @@ function Dashboard() {
                 </CardContent>
               </CardActionArea>
             </Card>
+            </Link>
           </div>
           <div className=" h-36 border-4 border-green-800 border-solid rounded-xl ">
             <Link to="/mentorship-program" className="no-underline">

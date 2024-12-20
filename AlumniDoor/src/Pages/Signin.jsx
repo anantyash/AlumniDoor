@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import connect from "../assets/connect.png";
+import { useUser } from "../context/UserContext";
 
 function Signin() {
-  const [userName, setUserName]= useState('')
-  const [password, setPassword]= useState('')
+  const [user_Name, setUser_Name]= useState('')
+  const [pwd, setPassword]= useState('')
+
+  const{username,} = useUser()
 
   const handleSubmit=(e)=> {
     e.preventDefault()
+
+    
+
+
     // prevent the page from reloding
   }
 
@@ -47,7 +54,7 @@ function Signin() {
             <p className="text-sm lg:text-lg">Sign in to your account..</p>
           </div>
 
-          <form action="#" method="POST" className="space-y-4 mt-6 shadow-md p-4">
+          <form action="#" className="space-y-4 mt-6 shadow-md p-4">
            
             <div>
               <label
@@ -61,8 +68,8 @@ function Signin() {
                   id="username"
                   name="username"
                   type="text"
-                  value={userName}
-                  onChange={(e)=>{setUserName(e.target.value)}}
+                  value={user_Name}
+                  onChange={(e)=>{setUser_Name(e.target.value)}}
                   required
                   autoComplete="username"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-700 sm:text-sm/6"
@@ -73,7 +80,7 @@ function Signin() {
             <div>
               <div className="flex items-center justify-between">
                 <label
-                  htmlFor="password"
+                  htmlFor="pwd"
                   className="block text-sm/6 font-medium text-gray-900"
                 >
                   Password
@@ -89,10 +96,10 @@ function Signin() {
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
+                  id="pwd"
+                  name="pwd"
                   type="password"
-                  value={password}
+                  value={pwd}
                   onChange={(e)=> setPassword(e.target.value)}
                   required
                   autoComplete="current-password"
