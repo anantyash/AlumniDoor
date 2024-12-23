@@ -4,7 +4,7 @@
 
 We are excited to announce that **AlumniDoor** is on the way! This innovative platform is being developed to connect alumni with each other and current students, creating a vibrant community for networking, mentorship, and collaboration.
 
-### What to Expect
+### Expected Features 
 - **Networking Opportunities**: Connect with fellow alumni and current students.
 - **Mentorship Programs**: Pairing alumni with students for guidance and support.
 - **Events**: Stay tuned for upcoming gatherings and learning opportunities.
