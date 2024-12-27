@@ -11,30 +11,28 @@ function HeroSection() {
         className="md:w-3/5 md:h-96 p-4 md:pl-5 flex md:justify-evenly gap-8 flex-col selection:bg-green-400 "
       >
         <h1 className="text-6xl text-brown ">Connect. Inspire. Thrive.</h1>
-        <p className="  text-lg px-10 font-sans    ">
+        <p className="  text-lg px-10 font-sans ">
           <span className="font-medium text-xl">
-            Empowering connections, inspiring success:
+            Empowering connections, inspiring success: {" "}
           </span>
-          Our platform bridges alumni and students to build a supportive
-          community for mentorship, networking, and lifelong learning.
+          Our platform strengthens the bond between alumni and students, fostering a vibrant community that celebrates achievements, cultivates growth, and inspires lifelong learning.
         </p>
         <p className="text-lg px-10 font-sans">
        
-          Together, we create opportunities, celebrate achievements, and drive
-          growth for a brighter future.
+        Together, we shape a future built on Collaboration, Opportunity, and shared Success.
         </p>
 
         <div //this contain buttons
           className="flex justify-center gap-6 pt-3"
         >
           <Button
-            className="text-green-500 duration-500 font-semibold border-green-600 border-2 hover:bg-green-600 hover:text-slate-50 "
+            className="text-greenColor duration-500 font-semibold border-greenColor border-2 hover:bg-greenColor hover:text-slate-50 "
             variant="outlined"
           >
             Join as Alumni
           </Button>
           <Button
-            className="text-green-500 duration-500 font-semibold border-green-600 border-2 hover:bg-green-600 hover:text-slate-50 "
+            className="text-greenColor duration-500 font-semibold border-greenColor border-2 hover:bg-greenColor hover:text-slate-50 "
             variant="outlined"
           >
             Join as Student

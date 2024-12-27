@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 
 import mentoringimg from "../assets/mentoringimg.png";
 
-import { Button, InputBase, Paper, Card, CardContent } from "@mui/material";
+import { Button, InputBase, Paper, Card, CardContent, IconButton } from "@mui/material";
 import Footer from "../components/Footer";
 
 function Mentorship() {
@@ -104,6 +104,7 @@ function Mentorship() {
               width: 400,
             }}
           >
+
             <InputBase
               className="text-green-700 text-xl pb-2 md:pb-0"
               sx={{ ml: 2, flex: 1 }}
@@ -151,7 +152,6 @@ function Mentorship() {
         </div>
       </div>
 
-      {/* <Footer /> */}
     </>
   );
 }

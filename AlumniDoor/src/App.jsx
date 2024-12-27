@@ -4,7 +4,7 @@ import { Routes, Route, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Userprovider, useUser } from "./context/UserContext";
 
-function App() {
+function App({post}) {
   const { isAuth } = useUser();
   const [users, setUsers] = useState([]);
 
@@ -14,16 +14,8 @@ function App() {
   return (
     <>
       <Userprovider value={{ newUser, isAuth }}>
-        {/* Public Routes */}
-
-        {/* Authentic Routes */}
-
-        {/* <NavBar page=" " /> */}
         <Outlet />
         <Footer />
-        {/* <LandingPage /> */}
-        {/* <Dashboard/> */}
-        {/* <Mentorship/> */}
       </Userprovider>
     </>
   );

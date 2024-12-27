@@ -17,6 +17,7 @@ import DonationPage from "./Pages/DonationPage.jsx";
 import SignUp from "./Pages/SignUp.jsx";
 import AuthLayout from "./_auth/AuthLayout.jsx";
 import Networking from "./Pages/Networking.jsx";
+import LoginPage from "./Pages/LoginPage.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -43,9 +44,10 @@ const router = createBrowserRouter(
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/mentorship-program" element={<Mentorship />} />
         <Route path="/donation-page" element={<DonationPage />} />
-        <Route path="/network" element={<Networking/>} />
+        <Route path="/network" element={<Networking />} />
+        <Route path="/signin" element={<Signin />} />
       </Route>
-      <Route path="/login" element={<Signin />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUp />} />
     </Route>
   )
