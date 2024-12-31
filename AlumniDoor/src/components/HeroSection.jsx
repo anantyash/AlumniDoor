@@ -19,7 +19,7 @@ function HeroSection() {
         </p>
         <p className="text-lg px-10 font-sans">
        
-        Together, we shape a future built on Collaboration, Opportunity, and shared Success.
+        Together, we shape a future built on Collaboration, Opportunity, and Shared Success.
         </p>
 
         <div //this contain buttons

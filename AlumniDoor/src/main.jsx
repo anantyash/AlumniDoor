@@ -12,7 +12,7 @@ import {
 import LandingPage from "./Pages/LandingPage.jsx";
 import Dashboard from "./Pages/Dashboard.jsx";
 import Mentorship from "./Pages/Mentorship.jsx";
-import Signin from "./Pages/Signin.jsx";
+
 import DonationPage from "./Pages/DonationPage.jsx";
 import SignUp from "./Pages/SignUp.jsx";
 import AuthLayout from "./_auth/AuthLayout.jsx";
@@ -41,11 +41,10 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="" element={<LandingPage />} />
       <Route element={<AuthLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/door" element={<Dashboard />} />
         <Route path="/mentorship-program" element={<Mentorship />} />
         <Route path="/donation-page" element={<DonationPage />} />
         <Route path="/network" element={<Networking />} />
-        <Route path="/signin" element={<Signin />} />
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUp />} />

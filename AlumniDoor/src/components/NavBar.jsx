@@ -2,13 +2,23 @@ import React, { useState } from "react";
 import logo from "../assets/logo1.png";
 import avatarimg from "../assets/avatarimg.png";
 
-import { Button, IconButton, Avatar, Divider } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  Avatar,
+  Divider,
+  Backdrop,
+  Paper,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
+import DoorBackIcon from "@mui/icons-material/DoorBack";
 import HomeIcon from "@mui/icons-material/Home";
 import SchoolIcon from "@mui/icons-material/School";
 // import PeopleIcon from "@mui/icons-material/People";
@@ -18,6 +28,7 @@ import { Link, NavLink } from "react-router-dom";
 const NavBar = ({ page }) => {
   const [mode, setMode] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
+  const [openDoor, setOpenDoor] = useState(false);
 
   const handletheme = () => {
     setMode(!mode);
@@ -133,7 +144,12 @@ const NavBar = ({ page }) => {
                 */}
                 <li>
                   <NavLink>
-                    <IconButton className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md ">
+                    <IconButton
+                      className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md "
+                      onClick={() => {
+                        setOpenDoor(!openDoor);
+                      }}
+                    >
                       <MeetingRoomIcon className="px-1" />{" "}
                       <span className=" text-base font-semibold">Door</span>
                     </IconButton>
@@ -144,6 +160,37 @@ const NavBar = ({ page }) => {
                       Door
                     </Button> */}
                   </NavLink>
+                  <Backdrop open={openDoor}>
+                    <div className="w-full h-full flex justify-center items-center">
+                      <Paper className=" w-fit h-fit flex bg-greenlightColor flex-col  items-center p-8 pt-3 gap-8 rounded-tl-full rounded-t-full border-solid border-4 border-greenColor">
+                        <IconButton
+                          className="text-greenColor bg-white p-8 mt-8 hover:text-greenTextColor w-fit flex-col border-2 border-greenColor border-solid "
+                          onClick={() => {
+                            setOpenDoor(!openDoor);
+                          }}
+                        >
+                          <DoorBackIcon className="text-3xl" />
+                          <span className=" text-xs ">Close</span>
+                        </IconButton>
+                        <div className="flex flex-col gap-2 p-4 justify-around w-full text-center rounded-lg border-2 border-greenColor border-solid bg-white 
+                        [&_.link]:no-underline [&_.link]:text-greenColor [&_.link]:rounded-lg [&_.link]:p-4 ">
+                          {/* <Divider className="bg-black"/> */}
+                          <Link className=" link hover:bg-greenTextColor">
+                            Networking Hub
+                          </Link>
+                          <Link className="link hover:bg-greenTextColor">
+                            Mentorship Program
+                          </Link>
+                          <Link className="link hover:bg-greenTextColor">
+                            Donation Portal
+                          </Link>
+                          <Link className="link hover:bg-greenTextColor">
+                            Support & Feedback
+                          </Link>
+                        </div>
+                      </Paper>
+                    </div>
+                  </Backdrop>
                 </li>
               </ul>
             </nav>

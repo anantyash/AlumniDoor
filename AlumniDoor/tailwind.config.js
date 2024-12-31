@@ -9,9 +9,9 @@ export default {
     extend: {
       colors: {
         brown: "#8D4033",
-        greenColor: "#1F8052",
-        greenlightColor: "#C7F9CC",
-        greenTextColor: "#7DDF64",
+        greenColor: "#1F8052", //Sea Green
+        greenlightColor: "#C7F9CC", //Tea Green
+        greenTextColor: "#7DDF64", //SGBUS Green
       },
     },
   },

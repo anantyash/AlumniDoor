@@ -4,16 +4,17 @@ import { Routes, Route, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Userprovider, useUser } from "./context/UserContext";
 
-function App({post}) {
+function App({ post }) {
   const { isAuth } = useUser();
   const [users, setUsers] = useState([]);
 
-  const newUser = (user) => {
-    setUsers((prev) => [{ id: Date.now(), ...user }, ...prev]);
+  const newUser = (userData) => {
+    setUsers((prevUsers) => [...prevUsers, { id: Date.now(), ...userData }]);
+    // setUsers((prevUsers) => [...prevUsers, { id: Date.now(), ...userData }]);
   };
   return (
     <>
-      <Userprovider value={{ newUser, isAuth }}>
+      <Userprovider value={{ users, newUser, isAuth }}>
         <Outlet />
         <Footer />
       </Userprovider>

@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 
 function AuthLayout() {
   const {isAuth} = useUser()
+  
   return (
     <>
       {!isAuth ? (

@@ -1,19 +1,36 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { Link } from "react-router-dom";
+import { userSchema } from "./SignUp";
 
 import loginimg from "../assets/AlumniPics/ALUMNIDOOR (38).png";
-import { Button, Divider, IconButton, TextField } from "@mui/material";
 
+import { Button, Divider, IconButton, TextField } from "@mui/material";
 // import GoogleIcon from "@mui/icons-material/Google";
 // import GitHubIcon from "@mui/icons-material/GitHub";
-import { Link } from "react-router-dom";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [pwd, setPassword] = useState("");
+  const { values, errors, handleChange, handleSubmit, resetForm } = useFormik({
+    initialValues,
+    validationSchema: userSchema,
+    onSubmit: (values, action) => {
+      console.log(values);
+      action.resetForm();
+    },
+  });
 
-  const handleSubmit = (formdata) => {
-    console.log(formdata);
-  };
+  // const [email, setEmail] = useState("");
+  // const [pwd, setPassword] = useState("");
+
+  // const handleSubmit = (formdata) => {
+  //   console.log(formdata);
+  // };
 
   return (
     <div className="bg-greenlightColor flex justify-center items-center py-10 ">
@@ -30,21 +47,20 @@ function LoginPage() {
           </p>
 
           <form
-            action={handleSubmit}
+            onSubmit={handleSubmit}
             className="flex flex-col gap-3 p-5 w-3/4 justify-self-center"
           >
             <TextField
               className=""
               id="email"
+              name="email"
               type="email"
               label="Email"
               color="success"
               variant="standard"
-              required
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              value={values.email}
+              onChange={handleChange}
+              helperText={errors.email}
             />
             <TextField
               id="password"
@@ -52,10 +68,9 @@ function LoginPage() {
               label="Password"
               variant="standard"
               color="success"
-              value={pwd}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              value={values.password}
+              onChange={handleChange}
+              helperText={errors.password}
             />
             <p className="text-left text-xs font-sans text-blue-600 cursor-pointer">
               Forget Password?
@@ -70,15 +85,17 @@ function LoginPage() {
                 Keep me logged in
               </label>
             </div>
-            <Button variant="contained" className="bg-greenColor font-semibold"
-            type="submit"
+            <Button
+              variant="contained"
+              className="bg-greenColor font-semibold"
+              type="submit"
             >
               LogIn
             </Button>
           </form>
           <p className="font-sans text-sm px-2 ">
             Don't have an account?
-            <Link to="/signup" className="no-underline px-2">
+            <Link to="/signup" className="no-underline px-1">
               SignUp
             </Link>
           </p>
