@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo1.png";
-import avatarimg from "../assets/avatarimg.png";
+import { logo, avatarimg } from "../assets";
 
 import {
   Button,
@@ -12,27 +11,30 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import MenuIcon from "@mui/icons-material/Menu";
-import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
-import DoorBackIcon from "@mui/icons-material/DoorBack";
-import HomeIcon from "@mui/icons-material/Home";
-import SchoolIcon from "@mui/icons-material/School";
-// import PeopleIcon from "@mui/icons-material/People";
-import Diversity1Icon from "@mui/icons-material/Diversity1";
-import { Link, NavLink } from "react-router-dom";
+import {
+  CloseIcon,
+  NotificationsIcon,
+  LightModeIcon,
+  DarkModeIcon,
+  MenuIcon,
+  MeetingRoomIcon,
+  DoorBackIcon,
+  HomeIcon,
+  SchoolIcon,
+  Diversity1Icon,
+} from "../assets/iconIndex";
+
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 const NavBar = ({ page }) => {
   const [mode, setMode] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   const [openDoor, setOpenDoor] = useState(false);
+  const navigate = useNavigate();
 
-  const handletheme = () => {
-    setMode(!mode);
-  };
+  // const handletheme = () => {
+  //   setMode(!mode);
+  // };
 
   return (
     <>
@@ -100,16 +102,16 @@ const NavBar = ({ page }) => {
                       <HomeIcon className="px-1" />{" "}
                       <span className=" text-base font-semibold">Home</span>
                     </IconButton>
-                    {/* <Button
-                      variant="text"
-                      
-                    >
-                      Home
-                    </Button> */}
                   </NavLink>
                 </li>
+                {/* Alumni */}
                 <li>
-                  <IconButton className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md ">
+                  <IconButton
+                    onClick={() => {
+                      navigate("/login");
+                    }}
+                    className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md "
+                  >
                     <Diversity1Icon className="px-1" />{" "}
                     <span className=" text-base font-semibold">Alumni</span>
                   </IconButton>
@@ -120,8 +122,14 @@ const NavBar = ({ page }) => {
                     Alumni
                   </Button> */}
                 </li>
+                {/* College */}
                 <li>
-                  <IconButton className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md ">
+                  <IconButton
+                    onClick={() => {
+                      navigate("/login");
+                    }}
+                    className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md "
+                  >
                     <SchoolIcon className="px-1" />{" "}
                     <span className=" text-base font-semibold">College</span>
                   </IconButton>
@@ -132,22 +140,14 @@ const NavBar = ({ page }) => {
                     College
                   </Button> */}
                 </li>
-                {/* Dashboard Button
-                <li>
-                  <Button
-                    variant="text"
-                    className="text-green-500 hover:bg-green-100 font-semibold"
-                  >
-                    Dashboard
-                  </Button>
-                </li> 
-                */}
+
+                {/* Door */}
                 <li>
                   <NavLink>
                     <IconButton
                       className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md "
                       onClick={() => {
-                        setOpenDoor(!openDoor);
+                        navigate("/login");
                       }}
                     >
                       <MeetingRoomIcon className="px-1" />{" "}
@@ -172,8 +172,10 @@ const NavBar = ({ page }) => {
                           <DoorBackIcon className="text-3xl" />
                           <span className=" text-xs ">Close</span>
                         </IconButton>
-                        <div className="flex flex-col gap-2 p-4 justify-around w-full text-center rounded-lg border-2 border-greenColor border-solid bg-white 
-                        [&_.link]:no-underline [&_.link]:text-greenColor [&_.link]:rounded-lg [&_.link]:p-4 ">
+                        <div
+                          className="flex flex-col gap-2 p-4 justify-around w-full text-center rounded-lg border-2 border-greenColor border-solid bg-white 
+                        [&_.link]:no-underline [&_.link]:text-greenColor [&_.link]:rounded-lg [&_.link]:p-4 "
+                        >
                           {/* <Divider className="bg-black"/> */}
                           <Link className=" link hover:bg-greenTextColor">
                             Networking Hub
@@ -227,7 +229,7 @@ const NavBar = ({ page }) => {
       {/* For Dashboard Nav Bar  */}
       {page === "Dashboard" && (
         <div // Nav Container
-          className=" w-auto h-fit flex items-center justify-between px-2 md:px-5 mb-2 md:m-0 "
+          className=" w-auto h-fit top-0 sticky bg-white z-50 flex items-center justify-between px-2 md:px-5 mb-2 md:m-0 "
         >
           {" "}
           <div //For Contain Image
@@ -240,31 +242,22 @@ const NavBar = ({ page }) => {
           <div // For Icons
             className=" px-2 pt-5"
           >
-            {mode === true && (
-              <IconButton
-                className="text-green-800 hover:bg-green-100 md:mr-4 transition-transform ease-in-out delay-100"
-                onClick={handletheme}
-              >
-                <LightModeIcon className="md:text-3xl" />
-              </IconButton>
-            )}
-            {mode === false && (
-              <IconButton
-                className="text-green-800 hover:bg-green-100 md:mr-4 transition-transform ease-in-out"
-                onClick={() => {
-                  setMode(!mode);
-                }}
-              >
-                <DarkModeIcon className="md:text-3xl" />
-              </IconButton>
-            )}
-            <IconButton className="text-green-800 hover:bg-green-100 md:mr-4">
+            <IconButton
+              onClick={() => {
+                navigate("/door");
+              }}
+              className="text-green-800 hover:bg-green-100 md:mr-4"
+            >
               <MeetingRoomIcon className="md:text-3xl" />
             </IconButton>
-            <IconButton className="text-green-800 hover:bg-green-100 md:mr-4">
+            <IconButton //Notification
+              className="text-green-800 hover:bg-green-100 md:mr-4"
+            >
               <NotificationsIcon className="md:text-3xl" />
             </IconButton>
-            <IconButton className="text-green-800 hover:bg-green-100 md:mr-4">
+            <IconButton //Avatar
+              className="text-green-800 hover:bg-green-100 md:mr-4"
+            >
               <Avatar alt="Avatar Placeholde " src={avatarimg} />
             </IconButton>
           </div>

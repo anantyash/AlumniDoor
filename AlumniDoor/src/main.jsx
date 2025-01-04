@@ -10,7 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage.jsx";
-import Dashboard from "./Pages/Dashboard.jsx";
+import Dashboard from "./Pages/Door.jsx";
 import Mentorship from "./Pages/Mentorship.jsx";
 
 import DonationPage from "./Pages/DonationPage.jsx";

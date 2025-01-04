@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
 import signup from "../assets/AlumniPics/ALUMNIDOOR (2).png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import {
+  Alert,
   Backdrop,
   Button,
   Divider,
@@ -14,7 +15,6 @@ import {
   InputAdornment,
   InputLabel,
   MenuItem,
-  Paper,
   Select,
   TextField,
 } from "@mui/material";
@@ -99,8 +99,9 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 function SignUp() {
+  const [submmitStatus, setSubmitStatus] = useState("");
   const { users, newUser } = useUser();
-  // const [submmitStatus, setSubmitStatus] = useState("");
+  const navigate = useNavigate();
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -122,11 +123,20 @@ function SignUp() {
             // terms: values.terms,
           });
           console.log(users);
-          // setSubmitStatus = "Success";
+          setSubmitStatus("Success"); // for successful message
+          setTimeout(() => {
+            navigate("/door");
+          }, 2000);
           action.resetForm();
         } catch (error) {
-          // setSubmitStatus = ()=>{"Error"};
+          // catch error algo
+          setSubmitStatus("Error");
         }
+        const timer = setTimeout(() => {
+          setSubmitStatus("");
+        }, 4000);
+
+        return () => clearTimeout(timer); // for free the timer memory
       },
     });
 
@@ -183,8 +193,21 @@ function SignUp() {
     "Mechanical Engineering",
   ];
 
+  const [selected, setSelected] = useState();
+
   return (
-    <div className="bg-greenlightColor flex justify-center items-center py-10 ">
+    <div className="bg-greenlightColor  flex flex-col justify-center items-center py-10 ">
+      {submmitStatus === "Success" && (
+        <Backdrop open={true} className="z-20">
+          <Alert
+            className="w-fit inline-flex absolute top-4 ease-in-out transition-transform translate-y-6 delay-150 text-center "
+            severity="success"
+          >
+            {" "}
+            Register successfully
+          </Alert>
+        </Backdrop>
+      )}
       <div className="w-11/12 flex p-3  justify-between ">
         {/* Image Part */}
         <div className="w-2/5 p-10  hidden md:flex items-center">
@@ -206,14 +229,13 @@ function SignUp() {
             <div // Join As
               className=" p-2 flex justify-center mt-4"
             >
-              <FormControl
+              <FormControl 
                 error={touched.userType && errors.userType}
                 className={
                   errors.userType
                     ? "flex flex-row gap-2 items-center font-sans text-red-600"
                     : "flex flex-row gap-2 items-center font-sans"
                 }
-                // className="flex flex-row gap-2 items-center font-sans"
               >
                 <label htmlFor="userType"> Join as : </label>
                 <Select
@@ -326,7 +348,7 @@ function SignUp() {
               </FormControl>
             </div>
             <h4 className="justify-self-start text-gray-600 font-sans mt-4 cursor-default">
-              Alumni Details:
+              Educational Details:
             </h4>
             <div className="flex gap-6 flex-wrap justify-around md:justify-between p-3">
               <FormControl // Graduation Year
@@ -381,6 +403,7 @@ function SignUp() {
 
               <TextField // Current Profession
                 id="currentProfession"
+                disabled={values.userType === "Student"}
                 name="currentProfession"
                 variant="standard"
                 type="text"
@@ -399,6 +422,7 @@ function SignUp() {
                 variant="standard"
                 color="success"
                 sx={{ minWidth: 200, maxWidth: 200 }}
+                disabled={values.userType === "Student"}
               >
                 <InputLabel id="location-label-id">Location</InputLabel>
                 <Select

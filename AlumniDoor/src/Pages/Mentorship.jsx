@@ -1,17 +1,17 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+
 
 import mentoringimg from "../assets/mentoringimg.png";
 
 import { Button, InputBase, Paper, Card, CardContent, IconButton } from "@mui/material";
-import Footer from "../components/Footer";
+
 
 function Mentorship() {
   return (
     <>
       {/* <NavBar page="Dashboard" /> */}
       <div //For Second Navigation
-        className=" flex px-3 shadow-lg py-2 md:py-0 sticky top-0 bg-white"
+        className=" flex px-3 shadow-lg py-2 md:py-0 sticky top-24 bg-white"
       >
         <nav className="w-4/5 hidden md:inline-block ">
           <ul className=" flex justify-between font-bold list-none p-2 ">
@@ -82,10 +82,10 @@ function Mentorship() {
       </div>
 
       <div //main (middle) container
-        className=" flex flex-col-reverse md:flex-row w-full justify-around"
+        className=" flex flex-col-reverse md:flex-row w-full justify-around "
       >
         <div //Left part container
-          className=" flex flex-col justify-center md:pt-40 gap-5 text-center md:text-left md:pl-20 h-auto"
+          className=" flex flex-col justify-center md:pt-30 gap-5 text-center md:text-left md:pl-20 h-auto"
         >
           <p className="text-2xl text-brown font-semibold font-sans py-5">
             Learn a new skill, <br />

@@ -1,5 +1,5 @@
 import React from "react";
-import landingimg from "../assets/landingimg.png";
+import { landingimg } from "../assets";
 import { Button } from "@mui/material";
 
 function HeroSection() {

@@ -1,20 +1,15 @@
 import React from "react";
 
-// import successstoryimg from "../assets/successstoryimg.png";
-// import metorshipimg from "../assets/mentorshipimg.png";
-// import jobportalimg from "../assets/jobportalimg.png";
-// import feedbackimg from "../assets/feedbackimg.png";
-// import eventimg from "../assets/eventimg.png";
-// import networkimg from "../assets/networkimg.png";
-import successstoryimg from "../assets/AlumniPics/ALUMNIDOOR (34).png";
-import metorshipimg from "../assets/AlumniPics/ALUMNIDOOR (7).png";
-import networkimg from "../assets/AlumniPics/ALUMNIDOOR (27).png";
-import feedbackimg from "../assets/AlumniPics/ALUMNIDOOR (39).png";
-import donateimg from "../assets/AlumniPics/ALUMNIDOOR (17).png";
-import queimg from "../assets/AlumniPics/ALUMNIDOOR (50).png";
-
 import { Button } from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForwardIcon } from "../assets/iconIndex";
+import {
+  ALUMNIDOOR17,
+  ALUMNIDOOR27,
+  ALUMNIDOOR34,
+  ALUMNIDOOR39,
+  ALUMNIDOOR50,
+  ALUMNIDOOR7,
+} from "../assets";
 
 function QuickLinks() {
   return (
@@ -29,7 +24,7 @@ function QuickLinks() {
           className="text-center  flex flex-col justify-center"
         >
           <h1> Success Stories</h1>
-          <p className="p-2">
+          <p className="p-2 ">
             Discover inspiring achievements of our alumni and get motivated by
             their journey.
           </p>
@@ -44,11 +39,7 @@ function QuickLinks() {
         <div // Image Part
           className="w-full md:w-1/4 "
         >
-          <img
-            src={successstoryimg}
-            alt="Image"
-            className="w-full  rounded-md"
-          />
+          <img src={ALUMNIDOOR34} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
       <div // Links Container 2 Mentorship Program
@@ -73,7 +64,7 @@ function QuickLinks() {
         <div // Image Part
           className="md:w-1/4 w-full"
         >
-          <img src={metorshipimg} alt="Image" className="w-full  rounded-md" />
+          <img src={ALUMNIDOOR7} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
       {/* Job Poartal link 
@@ -149,7 +140,7 @@ function QuickLinks() {
         <div // Image Part
           className="md:w-1/4 w-full"
         >
-          <img src={networkimg} alt="Image" className="w-full  rounded-md" />
+          <img src={ALUMNIDOOR27} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
       <div // Links Container 6 Feedback & Surveys
@@ -173,7 +164,7 @@ function QuickLinks() {
         <div // Image Part
           className="md:w-1/4 w-full"
         >
-          <img src={feedbackimg} alt="Image" className="w-full  rounded-md" />
+          <img src={ALUMNIDOOR39} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
       <div // Links Container 7 Donate & Support
@@ -197,7 +188,7 @@ function QuickLinks() {
         <div // Image Part
           className="md:w-1/4 w-full"
         >
-          <img src={donateimg} alt="Image" className="w-full  rounded-md" />
+          <img src={ALUMNIDOOR17} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
       <div // Links Container 8 QnA
@@ -206,7 +197,10 @@ function QuickLinks() {
         <div // Link Part
           className="text-center  flex flex-col justify-center "
         >
-          <h1> Who is <span className="text-greenColor">"Alumni-Door"</span> For?</h1>
+          <h1>
+            {" "}
+            Who is <span className="text-greenColor">"Alumni-Door"</span> For?
+          </h1>
           <p className="p-2 font-sans ">
             "Alumni-Door" is for: <br />
             <b>Alumni</b> who want to give back, mentor, and stay connected with
@@ -220,7 +214,7 @@ function QuickLinks() {
         <div // Image Part
           className="md:w-1/4 w-full"
         >
-          <img src={queimg} alt="Image" className="w-full  rounded-md" />
+          <img src={ALUMNIDOOR50} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
     </div>
