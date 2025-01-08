@@ -66,7 +66,10 @@ export const userSchema = Yup.object({
   //       value && ["image/jpeg", "image/png", "image/gif"].includes(value.type)
   //     );
   //   }),
-  terms: Yup.boolean(true),
+  terms: Yup.boolean().oneOf(
+    [true],
+    "You must agree to the terms and conditions"
+  ),
 });
 
 // using formik for handle form data
@@ -83,6 +86,8 @@ const initialValues = {
   confirmPassword: "",
   profilePicture: null,
   terms: false,
+  mentor: "No",
+  company: "",
 };
 
 // create for file upload Button
@@ -98,6 +103,97 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
+// States declare for Location Dropdown menu
+export const states = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Delhi", // National Capital Territory
+  "Jammu and Kashmir", // Union Territory
+  "Ladakh", // Union Territory
+  "Chandigarh", // Union Territory
+];
+
+//Courses declare for Degree Dropdown menu
+export const courses = [
+  "Aeronautical Engineering",
+  "Aerospace Engineering",
+  "Biomedical Engineering",
+  "Biotechnology",
+  "Computer Science Engineering",
+  "Electrical Engineering",
+  "Electronics Engineering",
+  "Information Technology",
+  "Mechanical Engineering",
+];
+
+export const profession = [
+  "Aeronautical Engineer",
+  "Aerospace Engineer",
+  "Aircraft Design Engineer",
+  "Artificial Intelligence Engineer",
+  "Automotive Engineer",
+  "Avionics Engineer",
+  "Backend Developer",
+  "Biomedical Engineer",
+  "Biomaterials Engineer",
+  "Biotechnologist",
+  "Bioinstrumentation Engineer",
+  "Clinical Engineer",
+  "Control Systems Engineer",
+  "Cybersecurity Analyst",
+  "Data Scientist",
+  "Electrical Engineer",
+  "Electronics Engineer",
+  "Environmental Scientist",
+  "Flight Test Engineer",
+  "Frontend Developer",
+  "Genetic Engineer",
+  "Healthcare IT Specialist",
+  "IT Manager",
+  "Machine Learning Engineer",
+  "Manufacturing Engineer",
+  "Mechanical Engineer",
+  "Medical Device Engineer",
+  "Pharmaceutical Engineer",
+  "Power Systems Engineer",
+  "Project Manager",
+  "Propulsion Engineer",
+  "Rehabilitation Engineer",
+  "Robotics Engineer",
+  "Software Engineer",
+  "Spacecraft Engineer",
+  "Systems Administrator",
+  "Systems Engineer",
+  "Tissue Engineer",
+  "Web Developer",
+];
+
 function SignUp() {
   const [submmitStatus, setSubmitStatus] = useState("");
   const { users, newUser } = useUser();
@@ -108,8 +204,10 @@ function SignUp() {
       initialValues,
       validationSchema: userSchema,
       onSubmit: (values, action) => {
+        const userId = Date.now();
         try {
           newUser({
+            id: userId,
             userType: values.userType,
             fullName: values.fullName,
             email: values.email,
@@ -121,15 +219,19 @@ function SignUp() {
             password: values.password,
             profilePicture: "",
             // terms: values.terms,
+            mentor: values.mentor,
+            // company: values.company,
           });
-          console.log(users);
+
           setSubmitStatus("Success"); // for successful message
+          // console.log("Navigating to Door with userId:", userId);
           setTimeout(() => {
-            navigate("/door");
-          }, 2000);
+            navigate(`/door/${userId}`); // for navigate to door page
+          }, 1000);
           action.resetForm();
         } catch (error) {
           // catch error algo
+          console.error("Error creating user:", error);
           setSubmitStatus("Error");
         }
         const timer = setTimeout(() => {
@@ -142,58 +244,7 @@ function SignUp() {
 
   // Year declare for Graduation Year Field
   const startYear = 2015; // Starting year
-  const endYear = 2025; // Ending year
-
-  // States declare for Location Dropdown menu
-  const states = [
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-    "Delhi", // National Capital Territory
-    "Jammu and Kashmir", // Union Territory
-    "Ladakh", // Union Territory
-    "Chandigarh", // Union Territory
-  ];
-
-  //Courses declare for Degree Dropdown menu
-  const courses = [
-    "Aeronautical Engineering",
-    "Aerospace Engineering",
-    "Biomedical Engineering",
-    "Biotechnology",
-    "Computer Science and Engineering",
-    "Electrical Engineering",
-    "Electronics Engineering",
-    "Information Technology",
-    "Mechanical Engineering",
-  ];
-
-  const [selected, setSelected] = useState();
+  const endYear = 2028; // Ending year
 
   return (
     <div className="bg-greenlightColor  flex flex-col justify-center items-center py-10 ">
@@ -229,7 +280,7 @@ function SignUp() {
             <div // Join As
               className=" p-2 flex justify-center mt-4"
             >
-              <FormControl 
+              <FormControl
                 error={touched.userType && errors.userType}
                 className={
                   errors.userType
@@ -264,16 +315,17 @@ function SignUp() {
             </div>
 
             <h4 className="justify-self-start text-gray-600 font-sans mt-4 cursor-default">
-              Personal Information:
+              Profile Setup:
             </h4>
             <div className="flex gap-6 flex-wrap justify-around md:justify-between p-3">
               <TextField //Full Name
-                id=""
+                id="name"
                 name="fullName"
                 variant="standard"
                 type="text"
                 label="Full Name"
                 color="success"
+                // autoComplete="name"
                 value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -282,21 +334,23 @@ function SignUp() {
               />
 
               <TextField //Email
-                id=""
+                id="mail"
                 name="email"
                 variant="standard"
                 type="email"
                 label="Email"
                 color="success"
+                placeholder="johndoe@gmail.com"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={touched.email && errors.email}
                 helperText={touched.email && errors.email}
+                autoComplete="email"
               />
               <TextField //Mobile No.
                 className=" w-48"
-                id=""
+                id="phoneNo"
                 name="phoneNo"
                 variant="standard"
                 type="text"
@@ -348,7 +402,7 @@ function SignUp() {
               </FormControl>
             </div>
             <h4 className="justify-self-start text-gray-600 font-sans mt-4 cursor-default">
-              Educational Details:
+              Personal Information:
             </h4>
             <div className="flex gap-6 flex-wrap justify-around md:justify-between p-3">
               <FormControl // Graduation Year
@@ -365,6 +419,7 @@ function SignUp() {
                   label="graduationYear"
                   value={values.graduationYear}
                   onChange={handleChange}
+                  placeholder="Graduation Year"
                 >
                   {/* Dynamically Year update */}
                   {Array.from(
@@ -401,22 +456,29 @@ function SignUp() {
                 </Select>
               </FormControl>
 
-              <TextField // Current Profession
-                id="currentProfession"
-                disabled={values.userType === "Student"}
-                name="currentProfession"
+              <FormControl // Current Profession
                 variant="standard"
-                type="text"
-                label="Current Profession "
                 color="success"
-                value={values.currentProfession}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={touched.currentProfession && errors.currentProfession}
-                helperText={
-                  touched.currentProfession && errors.currentProfession
-                }
-              />
+                disabled={values.userType === "Student"}
+                sx={{ minWidth: 200, maxWidth: 200 }}
+              >
+                <InputLabel id="profession-id">Current Profession</InputLabel>
+                <Select
+                  className="text-left"
+                  labelId="profession-id"
+                  id="currentProfession"
+                  name="currentProfession"
+                  label="Current Profession "
+                  value={values.currentProfession}
+                  onChange={handleChange}
+                >
+                  {profession.map((profession) => (
+                    <MenuItem key={profession} value={profession}>
+                      {profession}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
 
               <FormControl //Location
                 variant="standard"
@@ -443,7 +505,7 @@ function SignUp() {
               </FormControl>
             </div>
             <h4 className="justify-self-start text-gray-600 font-sans mt-4 cursor-default">
-              Profile Setup:
+              Password Setup:
             </h4>
             <div className="flex gap-6 flex-wrap justify-around md:justify-between p-3">
               <TextField //Password
@@ -511,21 +573,7 @@ function SignUp() {
             </Link>
           </p>
         </div>
-        {/* {submmitStatus === "Success" && (
-          <Backdrop open={true}>
-            <Paper className="w-fit h-fit flex bg-greenlightColor  justify-center items-center p-10">
-              <h3>Register Successfull !!</h3>
-            </Paper>
-          </Backdrop>
-        )} */}
       </div>
-      {/* {submmitStatus === "Error" && (
-        <Backdrop open={true}>
-          <Paper className="w-fit h-fit flex bg-greenlightColor flex-col  items-center p-8 pt-3 gap-8">
-            <h1>Not Register,....Try again</h1>
-          </Paper>
-        </Backdrop>
-      )} */}
     </div>
   );
 }

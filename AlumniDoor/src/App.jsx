@@ -9,12 +9,22 @@ function App({ post }) {
   const [users, setUsers] = useState([]);
 
   const newUser = (userData) => {
-    setUsers((prevUsers) => [...prevUsers, { id: Date.now(), ...userData }]);
+    setUsers((prevUsers) => [...prevUsers, { ...userData }]);
     // setUsers((prevUsers) => [...prevUsers, { id: Date.now(), ...userData }]);
   };
+
+  const updateUser = (userid, userData) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((prevUser) =>
+        prevUser.id === userid ? { ...prevUser, ...userData } : prevUser
+      )
+    );
+    // console.log(users);
+  };
+
   return (
     <>
-      <Userprovider value={{ users, newUser, isAuth }}>
+      <Userprovider value={{ users, newUser, isAuth, updateUser }}>
         <Outlet />
         <Footer />
       </Userprovider>

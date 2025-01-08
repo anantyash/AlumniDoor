@@ -20,6 +20,9 @@ import BadgeIcon from "@mui/icons-material/Badge";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded';
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import StarsIcon from '@mui/icons-material/Stars';
 
 import { FaDonate } from "react-icons/fa";
 import { SiCodementor } from "react-icons/si";
@@ -48,6 +51,10 @@ export {
   WorkspacePremiumIcon,
   Diversity2Icon,
   SupportAgentIcon,
+  ModeEditOutlineRoundedIcon,
+  KeyboardArrowRightIcon,
+  StarsIcon,
+
   FaDonate,
   SiCodementor,
   RiRobot2Fill,

@@ -13,13 +13,15 @@ function HeroSection() {
         <h1 className="text-6xl text-brown ">Connect. Inspire. Thrive.</h1>
         <p className="  text-lg px-10 font-sans ">
           <span className="font-medium text-xl">
-            Empowering connections, inspiring success: {" "}
+            Empowering Connections, Inspiring Success: {" "}
           </span>
-          Our platform strengthens the bond between alumni and students, fostering a vibrant community that celebrates achievements, cultivates growth, and inspires lifelong learning.
+          Our platform strengthens the bond between alumni and students,
+          fostering a vibrant community that celebrates achievements, cultivates
+          growth, and inspires lifelong learning.
         </p>
         <p className="text-lg px-10 font-sans">
-       
-        Together, we shape a future built on Collaboration, Opportunity, and Shared Success.
+          Together, we shape a future built on Collaboration, Opportunity, and
+          Shared Success.
         </p>
 
         <div //this contain buttons
@@ -44,7 +46,6 @@ function HeroSection() {
       >
         <img src={landingimg} alt="Image" className="w-11/12 h-auto" />
       </div>
-      
     </div>
   );
 }

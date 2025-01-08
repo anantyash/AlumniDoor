@@ -96,6 +96,7 @@ const NavBar = ({ page }) => {
                 z-10
              "
               >
+                {/* Home */}
                 <li>
                   <NavLink to="/">
                     <IconButton className="text-white hover:bg-green-600 md:text-greenColor md:hover:bg-greenlightColor rounded-md ">
@@ -140,7 +141,6 @@ const NavBar = ({ page }) => {
                     College
                   </Button> */}
                 </li>
-
                 {/* Door */}
                 <li>
                   <NavLink>
@@ -160,7 +160,7 @@ const NavBar = ({ page }) => {
                       Door
                     </Button> */}
                   </NavLink>
-                  <Backdrop open={openDoor}>
+                  {/* <Backdrop open={openDoor}>
                     <div className="w-full h-full flex justify-center items-center">
                       <Paper className=" w-fit h-fit flex bg-greenlightColor flex-col  items-center p-8 pt-3 gap-8 rounded-tl-full rounded-t-full border-solid border-4 border-greenColor">
                         <IconButton
@@ -176,7 +176,7 @@ const NavBar = ({ page }) => {
                           className="flex flex-col gap-2 p-4 justify-around w-full text-center rounded-lg border-2 border-greenColor border-solid bg-white 
                         [&_.link]:no-underline [&_.link]:text-greenColor [&_.link]:rounded-lg [&_.link]:p-4 "
                         >
-                          {/* <Divider className="bg-black"/> */}
+                         
                           <Link className=" link hover:bg-greenTextColor">
                             Networking Hub
                           </Link>
@@ -192,7 +192,7 @@ const NavBar = ({ page }) => {
                         </div>
                       </Paper>
                     </div>
-                  </Backdrop>
+                  </Backdrop> */}
                 </li>
               </ul>
             </nav>

@@ -10,7 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage.jsx";
-import Dashboard from "./Pages/Door.jsx";
+
 import Mentorship from "./Pages/Mentorship.jsx";
 
 import DonationPage from "./Pages/DonationPage.jsx";
@@ -18,30 +18,14 @@ import SignUp from "./Pages/SignUp.jsx";
 import AuthLayout from "./_auth/AuthLayout.jsx";
 import Networking from "./Pages/Networking.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App/>,
-//     children: [
-//       {
-//         path:"",
-//         element:<LandingPage/>
-//       },
-//       {
-//         path: "dashboard",
-//         element: <Dashboard/>
-//       }
-//     ]
-//   }
-// ])
+import Door from "./Pages/Door.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<LandingPage />} />
       <Route element={<AuthLayout />}>
-        <Route path="/door" element={<Dashboard />} />
+        <Route path="/door/:userid" element={<Door />} />
         <Route path="/mentorship-program" element={<Mentorship />} />
         <Route path="/donation-page" element={<DonationPage />} />
         <Route path="/network" element={<Networking />} />
