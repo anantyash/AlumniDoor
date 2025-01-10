@@ -20,9 +20,17 @@ import BadgeIcon from "@mui/icons-material/Badge";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded';
+import ModeEditOutlineRoundedIcon from "@mui/icons-material/ModeEditOutlineRounded";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import StarsIcon from '@mui/icons-material/Stars';
+import StarsIcon from "@mui/icons-material/Stars";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
+import ShareIcon from "@mui/icons-material/Share";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ForumIcon from '@mui/icons-material/Forum';
+import WorkIcon from '@mui/icons-material/Work';
+
 
 import { FaDonate } from "react-icons/fa";
 import { SiCodementor } from "react-icons/si";
@@ -54,6 +62,13 @@ export {
   ModeEditOutlineRoundedIcon,
   KeyboardArrowRightIcon,
   StarsIcon,
+  FavoriteBorderIcon,
+  FavoriteIcon,
+  ModeCommentOutlinedIcon,
+  ShareIcon,
+  LinkedInIcon,
+  ForumIcon,
+  WorkIcon,
 
   FaDonate,
   SiCodementor,

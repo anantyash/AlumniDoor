@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import NetworkNav from "../components/NetworkNav";
-import Network_Home from "../components/Network_Home";
+
 import { PostProvider } from "../context/PostContext";
+import { Outlet, Route, Routes } from "react-router-dom";
 
 function Networking() {
   const [posts, setPosts] = useState([]);
   const newPost = (post) => {
-    setPosts((prevPosts) => [
-      ...prevPosts,
-      { id: Date.now() , ...post },
-    ]);
+    setPosts((prevPosts) => [...prevPosts, { ...post }]);
+  };
+
+  const updatePost = (postid, postData) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((prevpost) =>
+        prevpost.id === postid ? { ...prevpost, ...postData } : prevpost
+      )
+    );
   };
   return (
     <>
-      <PostProvider value={{ posts, newPost }}>
+      <PostProvider value={{ posts, newPost, updatePost }}>
         <NetworkNav />
-
-        <Network_Home />
+        <Outlet />
       </PostProvider>
     </>
   );

@@ -146,7 +146,7 @@ function Door() {
 
     skill: Yup.array()
       .min(1, "At least one skill must be selected")
-      .max(5, "You can select up to 5 skills"),
+      .max(3, "You can select up to 3 skills"),
   });
 
   const initialValues = {
@@ -571,7 +571,9 @@ function Door() {
                                 </MenuItem>
                               ))}
                             </Select>
-                            <FormHelperText error={touched.skill && errors.skill}>
+                            <FormHelperText
+                              error={touched.skill && errors.skill}
+                            >
                               {touched.skill && errors.skill}
                             </FormHelperText>
                             {
@@ -685,7 +687,7 @@ function Door() {
             hover:[&>*]:text-greenTextColor 
             "
             >
-              <Link to={"/network"}>
+              <Link to={"/network/home/"}>
                 <Diversity2Icon className="text-greenColor" /> Networking Hub
               </Link>
               <Link to={"/mentorship-program"}>

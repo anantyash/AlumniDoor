@@ -19,6 +19,9 @@ import AuthLayout from "./_auth/AuthLayout.jsx";
 import Networking from "./Pages/Networking.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
 import Door from "./Pages/Door.jsx";
+import Network_Home from "./Pages/network/Network_Home.jsx";
+import AlumniDirectory from "./Pages/network/AlumniDirectory.jsx";
+import Messages from "./Pages/network/Messages.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +31,11 @@ const router = createBrowserRouter(
         <Route path="/door/:userid" element={<Door />} />
         <Route path="/mentorship-program" element={<Mentorship />} />
         <Route path="/donation-page" element={<DonationPage />} />
-        <Route path="/network" element={<Networking />} />
+        <Route path="/network" element={<Networking />}>
+          <Route path="home" element={<Network_Home />} />
+          <Route path="alumni-directory" element={<AlumniDirectory />} />
+          <Route path="messages" element={<Messages />} />
+        </Route>
       </Route>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUp />} />

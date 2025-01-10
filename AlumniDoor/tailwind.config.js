@@ -12,6 +12,7 @@ export default {
         greenColor: "#1F8052", //Sea Green
         greenlightColor: "#C7F9CC", //Tea Green
         greenTextColor: "#7DDF64", //SGBUS Green
+        greenBgColor: "#99F7AB", //Light Green
       },
     },
   },

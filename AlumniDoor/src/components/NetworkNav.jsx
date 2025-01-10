@@ -14,12 +14,12 @@ function NetworkNav() {
   return (
     <>
       <div //For Second Navigation
-        className=" flex  shadow-lg md:py-0 relative md:sticky md:top-0 md:bg-white"
+        className=" flex -mt-4 mb-4 shadow-lg sticky top-20 md:top-24 z-30 md:bg-white"
       >
         <nav className="w-full flex bg-green-900 justify-center sticky bottom-0">
           <ul className=" flex justify-evenly w-full font-bold list-none p-2">
             {/* Dashboard */}
-            <li>
+            {/* <li>
               <NavLink>
                 <IconButton className=" gap-2 text-white md:rounded-md bg-green-900 hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
                   <DashboardIcon />
@@ -28,11 +28,18 @@ function NetworkNav() {
                   </p>
                 </IconButton>
               </NavLink>
-            </li>
+            </li> */}
 
             {/* Home */}
             <li>
-              <NavLink>
+              <NavLink
+                to={"home"}
+                className={({ isActive }) =>
+                  isActive
+                    ? " [&>*]:bg-green-800 shadow-xl "
+                    : " [&>*]:bg-green-900"
+                }
+              >
                 <IconButton className="gap-2 text-white md:rounded-md bg-green-900 hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
                   <HomeIcon />
                   <p className="text-sm hidden md:inline-flex">Home</p>
@@ -42,8 +49,15 @@ function NetworkNav() {
 
             {/* Alumni-Directory */}
             <li>
-              <NavLink>
-                <IconButton className="  gap-2 text-white md:rounded-md bg-green-900 hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
+              <NavLink
+                to={"alumni-directory"}
+                className={({ isActive }) =>
+                  isActive
+                    ? " [&>*]:bg-green-800 shadow-xl "
+                    : " [&>*]:bg-green-900"
+                }
+              >
+                <IconButton className="  gap-2 text-white md:rounded-md hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
                   <PeopleIcon />
                   <p className="text-sm hidden md:inline-flex">
                     Alumni-Directory
@@ -54,7 +68,14 @@ function NetworkNav() {
 
             {/* Chat */}
             <li>
-              <NavLink>
+              <NavLink
+                to={"messages"}
+                className={({ isActive }) =>
+                  isActive
+                    ? " [&>*]:bg-green-800 shadow-xl "
+                    : " [&>*]:bg-green-900"
+                }
+              >
                 <IconButton className=" gap-2 text-white md:rounded-md bg-green-900 hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
                   <ChatIcon />
                   <p className="hidden md:inline-flex text-sm">Messages</p>
@@ -64,13 +85,13 @@ function NetworkNav() {
 
             {/* Search Button */}
             <li className="md:flex hidden">
-              <div className=" bg-white h-fit rounded-2xl w-full justify-center">
+              <div className=" bg-white h-fit rounded-2xl justify-center">
                 <IconButton>
                   <SearchIcon />
                 </IconButton>
                 <InputBase
                   className="px-2 text-sm bg-white rounded-2xl"
-                  placeholder="Search ..."
+                  placeholder="Search here"
                 />
               </div>
             </li>

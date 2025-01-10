@@ -90,7 +90,7 @@ const initialValues = {
   company: "",
 };
 
-// create for file upload Button
+// Create for file upload Button
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
   clipPath: "inset(50%)",
@@ -152,6 +152,7 @@ export const courses = [
   "Mechanical Engineering",
 ];
 
+// Profession declare for Profession Field
 export const profession = [
   "Aeronautical Engineer",
   "Aerospace Engineer",
