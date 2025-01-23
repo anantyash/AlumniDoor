@@ -32,9 +32,9 @@ const router = createBrowserRouter(
         <Route path="/mentorship-program" element={<Mentorship />} />
         <Route path="/donation-page" element={<DonationPage />} />
         <Route path="/network" element={<Networking />}>
-          <Route path="home" element={<Network_Home />} />
+          <Route path="home/:userid" element={<Network_Home />} />
           <Route path="alumni-directory" element={<AlumniDirectory />} />
-          <Route path="messages" element={<Messages />} />
+          <Route path="messages/:userid" element={<Messages />} />
         </Route>
       </Route>
       <Route path="/login" element={<LoginPage />} />

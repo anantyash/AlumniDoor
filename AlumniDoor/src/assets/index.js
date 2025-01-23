@@ -60,6 +60,7 @@ import ALUMNIDOOR59 from "./AlumniPics/ALUMNIDOOR (59).png";
 import landingimg from "./landingimg.png";
 import logo from "../assets/logo1.png";
 import avatarimg from "../assets/avatarimg.png";
+import mentoringimg from "../assets/mentoringimg.png"
 
 export {
   ALUMNIDOOR1,
@@ -123,5 +124,6 @@ export {
   ALUMNIDOOR59,
   landingimg,
   logo,
-  avatarimg
+  avatarimg,
+  mentoringimg
 };

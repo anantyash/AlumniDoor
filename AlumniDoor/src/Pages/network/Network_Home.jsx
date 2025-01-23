@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import {
   Avatar,
+  Button,
   Chip,
   Divider,
   IconButton,
+  InputAdornment,
   Link,
   TextField,
 } from "@mui/material";
@@ -17,20 +19,57 @@ import {
   FavoriteIcon,
   LogoutIcon,
   ModeCommentOutlinedIcon,
+  SchoolIcon,
   SendIcon,
   ShareIcon,
+  StarsIcon,
   WorkspacePremiumIcon,
 } from "../../assets/iconIndex";
 
 import { usePost } from "../../context/PostContext";
+import { useUser } from "../../context/UserContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Network_Home() {
+  const navigate = useNavigate();
+  const { users } = useUser();
   const { posts, newPost, updatePost } = usePost();
   const [postContent, setPostContent] = useState("");
+  const { userid } = useParams();
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-
+  const [value, setValue] = useState(0);
+  const charLimit = 250;
   // let user = users.find((user) => user.id === parseInt(userid, 10));
+
+  let user = users.find((user) => user.id === parseInt(userid, 10));
+  console.log(user);
+
+  // useEffect(() => {
+  //   user = users.find((user) => user.id === parseInt(userid, 10));
+  // },[]);
+
+  // Handle case where user is not found
+  if (!user) {
+    return (
+      <div className="flex flex-col h-52 bg-neutral-100 gap-6 p-5 justify-center items-center">
+        <h3 className="text-3xl">
+          <span className="text-red-600">Error 404: </span>User not found
+        </h3>
+        <Button
+          className=" hover:bg-transparent font-sans font-semibold underline capitalize"
+          variant="text"
+          onClick={() => navigate("/signup")}
+        >
+          Click here to Login again
+        </Button>
+
+        {/* <Link className=" text-blue-600">
+          Click here to Login again
+        </Link> */}
+      </div>
+    );
+  }
 
   const handlePostSubmit = () => {
     if (postContent.trim()) {
@@ -39,8 +78,8 @@ function Network_Home() {
         id: postid,
         content: postContent,
         imgurl: "",
-        userName: "Prince Kumar",
-        userType: "Mentor",
+        userName: user.fullName,
+        userType: user.userType,
         like: 0,
         liked: false,
       });
@@ -69,8 +108,8 @@ function Network_Home() {
           <div className="text-center items-center flex flex-col mb-3  ">
             <Avatar className="w-20 h-auto mb-2" src={avatarimg} />
             <span className="font-semibold font-sans text-xl ">
-              Prince Kumar
-              {/* {user.fullName} */}
+              {/* Prince Kumar */}
+              {user.fullName}
             </span>
 
             <span className="  font-sans flex text-sm ">
@@ -78,8 +117,8 @@ function Network_Home() {
               {/* {user.degree} */}
             </span>
             <span className="  font-sans flex text-sm ">
-              Batch 2024
-              {/* {user.degree} */}
+              {/* Batch 2024 */}
+              {`Batch ${user.graduationYear}`}
             </span>
 
             <p className=" font-sans flex items-center ">
@@ -87,46 +126,48 @@ function Network_Home() {
               <span className="text-blue-700 px-1">
                 <BadgeIcon className="text-lg pt-1" />
               </span>
-              Backend Developer
-              {/* {user.userType === "Alumni"
-                  ? user.currentProfession
-                  : user.userType} */}
+              {/* Backend Developer */}
+              {user.userType === "Alumni"
+                ? user.currentProfession
+                : user.userType}
             </p>
           </div>
-          <Chip
+          {/* <Chip
             className="bg-orange-100 cursor-default w-fit self-center font-sans font-semibold"
             label="Mentor"
             icon={<WorkspacePremiumIcon className="text-orange-500" />}
-          />
-          {/* {user.mentor === "Yes" && (
-              <Chip
-                className="bg-orange-100 cursor-default w-fit self-center font-sans font-semibold"
-                label="Mentor"
-                icon={<WorkspacePremiumIcon className="text-orange-500" />}
-              />
-            )}
-            {user.mentor === "No" && user.userType === "Alumni" && (
-              <Chip
-                className="bg-slate-200 cursor-default w-fit self-center font-sans font-semibold"
-                label="Alumni"
-                icon={<StarsIcon className="text-slate-500" />}
-              />
-            )}
-            {user.userType === "Student" && (
-              <Chip
-                className="bg-yellow-100 cursor-default w-fit self-center font-sans font-semibold"
-                label="Student"
-                icon={<SchoolIcon className="text-yellow-900" />}
-              />
-            )} */}
+          /> */}
+          {user.mentor === "Yes" && (
+            <Chip
+              className="bg-orange-100 cursor-default w-fit self-center font-sans font-semibold"
+              label="Mentor"
+              icon={<WorkspacePremiumIcon className="text-orange-500" />}
+            />
+          )}
+          {user.mentor === "No" && user.userType === "Alumni" && (
+            <Chip
+              className="bg-slate-200 cursor-default w-fit self-center font-sans font-semibold"
+              label="Alumni"
+              icon={<StarsIcon className="text-slate-500" />}
+            />
+          )}
+          {user.userType === "Student" && (
+            <Chip
+              className="bg-yellow-100 cursor-default w-fit self-center font-sans font-semibold"
+              label="Student"
+              icon={<SchoolIcon className="text-yellow-900" />}
+            />
+          )}
 
           <Divider className="mt-10 mb-5" flexItem variant="middle" />
-          <Link
-            to={"/"}
-            className=" no-underline justify-self-center px-4 mb-2 text-black hover:text-greenTextColor font-semibold font-sans flex items-center gap-2 "
+          <IconButton
+            className="text-base self-start ml-4 mb-2 text-black items-center flex gap-2 hover:text-greenTextColor font-semibold font-sans hover:bg-transparent"
+            // to={"/signup"}
+            onClick={() => navigate("/signup")}
+            // className=" no-underline justify-self-start mb-2 text-black text-base hover:text-greenTextColor font-semibold font-sans flex items-center gap-2 "
           >
             <LogoutIcon className="text-greenColor" /> Log Out
-          </Link>
+          </IconButton>
         </div>
       </div>
 
@@ -145,8 +186,25 @@ function Network_Home() {
               id="textInput"
               variant="standard"
               placeholder="Express Yourself with Ease..."
+              multiline
               value={postContent}
-              onChange={(e) => setPostContent(e.target.value)}
+              onChange={(e) => {
+                if (e.target.value.length <= charLimit) {
+                  setValue(e.target.value.length);
+                  setPostContent(e.target.value);
+                } else {
+                  null;
+                }
+              }}
+              slotProps={{
+                input: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      {value}/{charLimit}
+                    </InputAdornment>
+                  ),
+                },
+              }}
               className="font-sans text-sm border-green-700 justify-center px-2 w-full"
             />
 

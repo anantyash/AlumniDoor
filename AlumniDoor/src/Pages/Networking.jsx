@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import NetworkNav from "../components/NetworkNav";
 
 import { PostProvider } from "../context/PostContext";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet, } from "react-router-dom";
+import { MsgProvider } from "../context/MessageContext";
 
 function Networking() {
   const [posts, setPosts] = useState([]);
+  const [msgs, setMsgs] = useState([]);
+
   const newPost = (post) => {
     setPosts((prevPosts) => [...prevPosts, { ...post }]);
   };
@@ -17,11 +20,18 @@ function Networking() {
       )
     );
   };
+
+  const newMsg = (msg) => {
+    setMsgs((prevMsg) => [...prevMsg, { ...msg }]);
+  };
+
   return (
     <>
       <PostProvider value={{ posts, newPost, updatePost }}>
-        <NetworkNav />
-        <Outlet />
+        <MsgProvider value={{ msgs, newMsg }}>
+          <NetworkNav />
+          <Outlet />
+        </MsgProvider>
       </PostProvider>
     </>
   );

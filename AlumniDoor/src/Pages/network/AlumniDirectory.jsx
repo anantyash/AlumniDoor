@@ -57,7 +57,7 @@ function AlumniDirectory() {
         </div>
       </div>
 
-      <div className="w-4/5 justify-self-center p-5 flex flex-wrap gap-5 justify-evenly rounded-lg drop-shadow-2xl">
+      <div className="md:w-4/5 justify-self-center p-5 flex flex-wrap gap-5 justify-evenly rounded-lg drop-shadow-2xl">
         {Array.from({ length: length }, (_, index) => (
           <div className="w-60 bg-greenlightColor outline outline-greenColor drop-shadow-lg rounded-lg p-2 ">
             <div className="flex flex-col gap-2 p-5 rounded-br-full h-fit shadow-xl outline outline-4 outline-white bg-greenTextColor cursor-default">

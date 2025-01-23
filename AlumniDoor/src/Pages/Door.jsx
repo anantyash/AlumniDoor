@@ -687,7 +687,7 @@ function Door() {
             hover:[&>*]:text-greenTextColor 
             "
             >
-              <Link to={"/network/home/"}>
+              <Link to={`/network/home/${userid}`}>
                 <Diversity2Icon className="text-greenColor" /> Networking Hub
               </Link>
               <Link to={"/mentorship-program"}>

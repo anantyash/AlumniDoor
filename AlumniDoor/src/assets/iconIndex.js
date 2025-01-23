@@ -30,6 +30,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ForumIcon from '@mui/icons-material/Forum';
 import WorkIcon from '@mui/icons-material/Work';
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 
 import { FaDonate } from "react-icons/fa";
@@ -69,6 +70,7 @@ export {
   LinkedInIcon,
   ForumIcon,
   WorkIcon,
+  VerifiedIcon,
 
   FaDonate,
   SiCodementor,

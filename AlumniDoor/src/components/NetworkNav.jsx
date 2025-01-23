@@ -1,6 +1,6 @@
 import React from "react";
 import { IconButton, InputBase } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 import {
   DashboardIcon,
@@ -11,6 +11,8 @@ import {
 } from "../assets/iconIndex";
 
 function NetworkNav() {
+  const { userid } = useParams();
+
   return (
     <>
       <div //For Second Navigation
@@ -33,7 +35,7 @@ function NetworkNav() {
             {/* Home */}
             <li>
               <NavLink
-                to={"home"}
+                to={`home/${userid}`}
                 className={({ isActive }) =>
                   isActive
                     ? " [&>*]:bg-green-800 shadow-xl "
@@ -69,7 +71,7 @@ function NetworkNav() {
             {/* Chat */}
             <li>
               <NavLink
-                to={"messages"}
+                to={`messages/${userid}`}
                 className={({ isActive }) =>
                   isActive
                     ? " [&>*]:bg-green-800 shadow-xl "
