@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require("tailwindcss/plugin");
+
 export default {
   corePlugins: {
     preflight: false,
@@ -16,5 +19,27 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".scrollbar-none": {
+          "scrollbar-width": "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+
+        ".scrollbar-custom": {
+          "scrollbar-width": "thin",
+          // "scrollbar-color": " #1F8052 #C7F9CC",
+          // "&::-webkit-scrollbar": {
+          //   width: "2px",
+          // },
+          // "&::-webkit-scrollbar": {
+          //   "border-radius": "10px",
+          // },
+        },
+      });
+    }),
+  ],
 };

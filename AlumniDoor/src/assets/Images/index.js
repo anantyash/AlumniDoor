@@ -58,9 +58,11 @@ import ALUMNIDOOR57 from "./AlumniPics/ALUMNIDOOR (57).png";
 import ALUMNIDOOR58 from "./AlumniPics/ALUMNIDOOR (58).png";
 import ALUMNIDOOR59 from "./AlumniPics/ALUMNIDOOR (59).png";
 import landingimg from "./landingimg.png";
-import logo from "../assets/logo1.png";
-import avatarimg from "../assets/avatarimg.png";
-import mentoringimg from "../assets/mentoringimg.png"
+import logo from "./Logo1.png";
+import avatarimg from "./avatarimg.png";
+import mentoringimg from "./mentoringimg.png";
+import donationimg from "./donationimg.png";
+import logoIcon from "./LogoImg.png";
 
 export {
   ALUMNIDOOR1,
@@ -125,5 +127,7 @@ export {
   landingimg,
   logo,
   avatarimg,
-  mentoringimg
+  mentoringimg,
+  donationimg,
+  logoIcon,
 };

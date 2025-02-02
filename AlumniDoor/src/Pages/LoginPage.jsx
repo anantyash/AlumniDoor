@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Link } from "react-router-dom";
-import { userSchema } from "./SignUp";
 
-import loginimg from "../assets/AlumniPics/ALUMNIDOOR (38).png";
+import { Link, useNavigate } from "react-router-dom";
 
-import { Button, Divider, IconButton, TextField } from "@mui/material";
-// import GoogleIcon from "@mui/icons-material/Google";
-// import GitHubIcon from "@mui/icons-material/GitHub";
+import { loginSchema } from "../components/Validating";
+
+import { ALUMNIDOOR38 as loginimg } from "../assets/Images";
+
+import { Button, TextField } from "@mui/material";
+import authService from "../services/auth";
+import { useUser } from "../context/UserContext";
 
 const initialValues = {
   email: "",
@@ -16,24 +17,70 @@ const initialValues = {
 };
 
 function LoginPage() {
-  const { values, errors, handleChange, handleSubmit, resetForm } = useFormik({
-    initialValues,
-    validationSchema: userSchema,
-    onSubmit: (values, action) => {
-      console.log(values);
-      action.resetForm();
-    },
-  });
+  const [userData, setUserData] = useState();
+  const { newUser, checkAuth } = useUser();
+  const navigate = useNavigate();
 
-  // const [email, setEmail] = useState("");
-  // const [pwd, setPassword] = useState("");
+  useEffect(() => {
+    // checklogin
+    const fetchCurrentUser = async () => {
+      const data = await authService.getCurrentUser();
+      // console.log("Data: ", data);
+      setUserData(data);
+    };
 
-  // const handleSubmit = (formdata) => {
-  //   console.log(formdata);
-  // };
+    fetchCurrentUser();
+  }, []);
+
+  // console.log("user Data: ", userData.email);
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema: loginSchema,
+      onSubmit: async (values, action) => {
+        try {
+          const session = await authService.login(
+            values.email,
+            values.password
+          );
+          console.log(session);
+          if (session) {
+            const user = await authService.getCurrentUser();
+            setUserData(user);
+            console.log(userData);
+          }
+        } catch (error) {
+          console.error("Login failed:", error);
+        }
+        action.resetForm();
+        // console.log(values);
+      },
+    });
+
+  if (userData) {
+    newUser({
+      id: userData.id,
+      userType: userData.userType,
+      fullName: userData.fullName,
+      email: userData.email,
+      phoneNo: userData.phoneNo,
+      graduationYear: userData.graduationYear,
+      degree: userData.degree,
+      currentProfession: userData.currentProfession,
+      mentor: userData.mentor,
+    });
+
+    checkAuth(true);
+
+    const userId = userData.id;
+    // console.log("userID: ", userId);
+
+    navigate(`/door/${userId}`); // for navigate to door page
+  }
 
   return (
-    <div className="bg-greenlightColor flex justify-center items-center py-10 ">
+    <div className="bg-greenlightColor h-svh flex justify-center items-center ">
       <div //For Container
         className=" w-11/12 flex p-3  justify-between "
       >
@@ -60,7 +107,8 @@ function LoginPage() {
               variant="standard"
               value={values.email}
               onChange={handleChange}
-              helperText={errors.email}
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && errors.email}
             />
             <TextField
               id="password"
@@ -70,7 +118,8 @@ function LoginPage() {
               color="success"
               value={values.password}
               onChange={handleChange}
-              helperText={errors.password}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
             />
             <p className="text-left text-xs font-sans text-blue-600 cursor-pointer">
               Forget Password?

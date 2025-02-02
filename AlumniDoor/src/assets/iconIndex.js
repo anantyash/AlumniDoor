@@ -31,6 +31,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ForumIcon from '@mui/icons-material/Forum';
 import WorkIcon from '@mui/icons-material/Work';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 
 import { FaDonate } from "react-icons/fa";
@@ -71,6 +72,7 @@ export {
   ForumIcon,
   WorkIcon,
   VerifiedIcon,
+  CloudUploadIcon,
 
   FaDonate,
   SiCodementor,
