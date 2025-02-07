@@ -67,57 +67,7 @@ function QuickLinks() {
           <img src={ALUMNIDOOR7} alt="Image" className="w-full  rounded-md" />
         </div>
       </div>
-      {/* Job Poartal link 
-      <div // Links Container 3
-        className="flex w-3/4 md:flex-row justify-center md:gap-14 items-center border-2 border-green-400 border-solid rounded-lg md:pt-1 flex-col-reverse p-2 gap-5"
-      >
-        <div // Link Part
-          className="text-center  flex flex-col justify-center"
-        >
-          <h1> Job Board</h1>
-          <p className="p-2">
-            Explore job opportunities posted by alumni or share openings with
-            the community.
-          </p>
-          <Button
-            variant="text"
-            endIcon={<ArrowForwardIcon />}
-            className="text-green-600 hover:bg-green-200 w-fit self-center"
-          >
-            View Jobs
-          </Button>
-        </div>
-        <div // Image Part
-          className="md:w-1/4 w-full"
-        >
-          <img src={jobportalimg} alt="Image" className="w-full  rounded-md" />
-        </div>
-      </div> */}
-      {/* Events section
-      <div // Links Container 4
-        className="flex w-3/4  md:flex-row-reverse justify-center md:gap-14 items-center border-2 border-green-400 border-solid rounded-lg md:pt-1 flex-col-reverse p-2 gap-5"
-      >
-        <div // Link Part
-          className="text-center  flex flex-col justify-center"
-        >
-          <h1> Events & Reunions</h1>
-          <p className="p-2">
-            Stay updated on upcoming alumni meetups, webinars, and workshops.
-          </p>
-          <Button
-            variant="text"
-            endIcon={<ArrowForwardIcon />}
-            className="text-green-600 hover:bg-green-200 w-fit self-center"
-          >
-            Check Events
-          </Button>
-        </div>
-        <div // Image Part
-          className="md:w-1/4 w-full"
-        >
-          <img src={eventimg} alt="Image" className="w-full  rounded-md" />
-        </div>
-      </div> */}
+      
       <div // Links Container 5 Networking Hub
         className="flex w-3/4  justify-center md:flex-row md:gap-14 items-center border-2 border-greenColor border-solid rounded-lg md:pt-3 flex-col-reverse p-2 gap-5"
       >

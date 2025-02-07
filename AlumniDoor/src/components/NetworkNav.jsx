@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-import { CircularProgress, IconButton, InputBase } from "@mui/material";
-import { NavLink, useParams } from "react-router-dom";
+import React from "react";
+import { IconButton, InputBase } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 import {
-  DashboardIcon,
   HomeIcon,
   PeopleIcon,
   ChatIcon,
   SearchIcon,
 } from "../assets/iconIndex";
-import { use } from "react";
 
 function NetworkNav() {
-  const { userid } = useParams();
-  const [loader, setloader] = useState();
-
   return (
     <>
       <div //For Second Navigation
@@ -22,18 +17,6 @@ function NetworkNav() {
       >
         <nav className="w-full flex bg-green-900 justify-center sticky bottom-0">
           <ul className=" flex justify-evenly w-full font-bold list-none p-2">
-            {/* Dashboard */}
-            {/* <li>
-              <NavLink>
-                <IconButton className=" gap-2 text-white md:rounded-md bg-green-900 hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
-                  <DashboardIcon />
-                  <p className="hidden md:inline-flex text-sm text-center">
-                    Dashboard
-                  </p>
-                </IconButton>
-              </NavLink>
-            </li> */}
-
             {/* Home */}
             <li>
               <NavLink

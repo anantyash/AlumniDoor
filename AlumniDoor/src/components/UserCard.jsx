@@ -8,11 +8,10 @@ import {
   StarsIcon,
   WorkspacePremiumIcon,
 } from "../assets/iconIndex";
-import { useNavigate } from "react-router-dom";
+
 import { EditProfile } from "./index";
 
 function UserCard({ user = {}, edit = false }, ref) {
-  // const navigate = useNavigate();
   const [openEdit, setOpenEdit] = useState(false);
 
   useEffect(() => {
@@ -43,25 +42,15 @@ function UserCard({ user = {}, edit = false }, ref) {
         className=" w-[228px] flex flex-col self-center justify-center p-4 rounded-lg"
         ref={ref}
       >
-        {/* {console.log(openEdit)} */}
-
         <div className="text-center items-center flex flex-col mb-3  ">
           <Avatar className="w-20 h-auto mb-2" src={avatarimg} />
           <span className="font-semibold font-sans text-xl ">
-            {/* Prince Kumar */}
-            {/* {name} */}
             {user.fullName}
           </span>
 
+          <span className="  font-sans flex text-sm ">{user.degree}</span>
           <span className="  font-sans flex text-sm ">
-            {/* {degree} */}
-            {/* Computer Science Engineering, */}
-            {user.degree}
-          </span>
-          <span className="  font-sans flex text-sm ">
-            {/* Batch 2024 */}
             {`Batch ${user.graduationYear}`}
-            {/* {`Batch ${batch}`} */}
           </span>
 
           <p className=" font-sans flex items-center ">
@@ -69,7 +58,6 @@ function UserCard({ user = {}, edit = false }, ref) {
             <span className="text-blue-700 px-1">
               <BadgeIcon className="text-lg pt-1" />
             </span>
-            {/* Backend Developer */}
             {user.userType === "Alumni"
               ? user.currentProfession
               : user.userType}

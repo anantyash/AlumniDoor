@@ -30,7 +30,7 @@ import { avatarimg } from "../assets/Images";
 import dbService from "../services/AD_DB/userDB";
 
 function EditProfile({ user = {}, open, close }, ref) {
-  const [mentorData, setMentorData] = useState(null);
+
   const [profileEdit, setProfileEdit] = useState(false);
   const [personalEdit, setPersonalEdit] = useState(false);
 
@@ -65,7 +65,7 @@ function EditProfile({ user = {}, open, close }, ref) {
       onSubmit: () => {
         try {
           // updateUser(user.id, values);
-          console.log(values);
+          // console.log(values);
           dbService
             .createMentor(
               user.id,
@@ -74,7 +74,7 @@ function EditProfile({ user = {}, open, close }, ref) {
             )
             .then((data) => {
               if (data) {
-                console.log("Success");
+                // console.log("Success");
                 return (
                   <Snackbar
                     open={true}
@@ -91,9 +91,9 @@ function EditProfile({ user = {}, open, close }, ref) {
 
           action.resetForm();
         } catch (error) {
-          console.error("Submission Error ", error);
+          // console.error("Submission Error ", error);
+          throw new Error("Error:", error);
         }
-        // console.log("values are:", values);
       },
     });
   return (
@@ -259,10 +259,7 @@ function EditProfile({ user = {}, open, close }, ref) {
                   Edit
                 </Button>
               </div>
-              <div
-                // disabled={personalEdit === false}
-                className="flex flex-row gap-6 mt-2 flex-wrap justify-around md:justify-between p-3"
-              >
+              <div className="flex flex-row gap-6 mt-2 flex-wrap justify-around md:justify-between p-3">
                 <FormControl // Graduation Year
                   variant="standard"
                   color="success"
@@ -372,8 +369,6 @@ function EditProfile({ user = {}, open, close }, ref) {
 
               {/* Mentor Section */}
               <div className="p-1 pt-3">
-                {/* <p className="font-sans">Do You want to be a Mentor ?</p> */}
-
                 <FormControl
                   disabled={values.userType === "Student"}
                   className="flex flex-row gap-2  items-center font-sans"
@@ -408,18 +403,6 @@ function EditProfile({ user = {}, open, close }, ref) {
                     </Button>
                   </div>
                   <div className="flex flex-row gap-6 flex-wrap justify-evenly p-3">
-                    {/* <TextField // Company
-                      id="company-id"
-                      // disabled={values.userType === "Student"}
-                      name="company"
-                      variant="standard"
-                      type="text"
-                      label="Current Company "
-                      color="success"
-                      value={values.company}
-                      onChange={handleChange}
-                    /> */}
-
                     <FormControl //Skill
                       variant="standard"
                       color="success"
@@ -435,13 +418,9 @@ function EditProfile({ user = {}, open, close }, ref) {
                         onChange={handleChange}
                         value={values.skill}
                         renderValue={() => (
-                          <div className="flex flex-row overflow-visible relative gap-0.5">
-                            {""}
-                          </div>
+                          <div className="flex flex-row overflow-visible relative gap-0.5"></div>
                         )}
                         error={touched.skill && errors.skill}
-                        // helperText={touched.skill && errors.skill}
-                        // MenuProps={MenuProps}
                       >
                         {skills.map((skill) => (
                           <MenuItem key={skill} value={skill}>
@@ -465,8 +444,6 @@ function EditProfile({ user = {}, open, close }, ref) {
                     </FormControl>
 
                     <FormControl //Availability
-                      // className="flex flex-row gap-2 items-center font-sans"
-                      // error={touched.userType && errors.userType}
                       className={
                         errors.availability
                           ? "flex flex-row gap-2 items-center mb-4 justify-self-center font-sans text-red-600"
@@ -479,13 +456,11 @@ function EditProfile({ user = {}, open, close }, ref) {
                         labelId="availability-id"
                         id="availability-id"
                         name="availability"
-                        // disabled={values.availability === "Alumni"}
                         color="success"
                         onChange={handleChange}
                         value={values.availability}
                         helperText={touched.availability && errors.availability}
                       >
-                        {/* <MenuItem value={null || undefined}></MenuItem> */}
                         <MenuItem value={"Not Available"}>
                           Not Available
                         </MenuItem>

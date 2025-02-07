@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { useState } from "react";
 import { logo, avatarimg } from "../assets/Images";
 
 import {
@@ -6,12 +6,7 @@ import {
   IconButton,
   Avatar,
   Divider,
-  Backdrop,
-  Paper,
-  Menu,
-  MenuItem,
   Drawer,
-  Box,
   Chip,
   Tooltip,
 } from "@mui/material";
@@ -27,27 +22,20 @@ import {
   StarsIcon,
 } from "../assets/iconIndex";
 
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
-import ProfileCard from "./UserCard";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+
 import { useUser } from "../context/UserContext";
 import LogOut from "./LogOut";
 import InfoCard from "./InfoCard";
-// const {userid} =useParams()
-const NavBar = ({ page, userId }) => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const navigate = useNavigate();
 
+const NavBar = ({ page, userId }) => {
+  const navigate = useNavigate();
   const { users } = useUser();
 
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
+  
   let user = users.find((user) => user.id === userId);
-  // console.log('serId from navbar', userId)
-
-  // const name = user.fullName.split(" ", 1);
-
-  // const handletheme = () => {
-  //   setMode(!mode);
-  // };
 
   return (
     <>
@@ -56,8 +44,6 @@ const NavBar = ({ page, userId }) => {
         <div // Nav Container
           className=" w-auto h-fit flex md:items-center justify-between px-5 md:gap-0 "
         >
-          {" "}
-          {/*bg-green-300*/}
           <div //For Contain Logo Image
             className="w-auto h-fit rounded-3xl flex-initial "
           >
@@ -296,11 +282,6 @@ const NavBar = ({ page, userId }) => {
               sx={{}}
             >
               <div className="w-72 h-svh p-5 flex flex-col font-sans">
-                {/* <div className="flex w-full px-2 justify-between items-center">
-                  <span className="font-semibold font-sans">
-                    Hello, <span className="font-bold text-greenColor">Mr. {user.fullName}</span> 
-                  </span>
-                  </div> */}
                 <IconButton
                   className="self-end relative  hover:bg-neutral-200"
                   onClick={() => setOpenDrawer(false)}
@@ -345,9 +326,8 @@ const NavBar = ({ page, userId }) => {
                       />
                     )}
                   </div>
-                  {/* name course  */}
                 </div>
-                {/* <Divider className="mt-5 mb-4" /> */}
+
                 <div className="flex py-2 justify-center mt-3">
                   {user.mentor ? (
                     <InfoCard
@@ -375,7 +355,6 @@ const NavBar = ({ page, userId }) => {
                   className="  rounded-full bg-greenlightColor text-sm hover:bg-greenBgColor"
                   iconClass="text-lg"
                 />
-                {/* <ProfileCard /> */}
               </div>
             </Drawer>
           </div>
