@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const UserContext = createContext({
   users: [
@@ -21,8 +21,8 @@ export const UserContext = createContext({
       // terms: Boolean,
     },
   ],
-  isAuth: true,
-  checkAuth: (user) => {},
+  isAuth: false,
+  checkAuth: (auth) => {},
   newUser: (user) => {},
   updateUser: (user) => {},
 });

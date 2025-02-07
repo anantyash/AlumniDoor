@@ -28,15 +28,16 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ShareIcon from "@mui/icons-material/Share";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import ForumIcon from '@mui/icons-material/Forum';
-import WorkIcon from '@mui/icons-material/Work';
-import VerifiedIcon from '@mui/icons-material/Verified';
+import ForumIcon from "@mui/icons-material/Forum";
+import WorkIcon from "@mui/icons-material/Work";
+import VerifiedIcon from "@mui/icons-material/Verified";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { FaDonate } from "react-icons/fa";
 import { SiCodementor } from "react-icons/si";
 import { RiRobot2Fill } from "react-icons/ri";
+import { FaFilter } from "react-icons/fa";
 
 export {
   CloseIcon,
@@ -73,8 +74,10 @@ export {
   WorkIcon,
   VerifiedIcon,
   CloudUploadIcon,
-
+  ArrowBackIcon,
+  
   FaDonate,
   SiCodementor,
   RiRobot2Fill,
+  FaFilter,
 };

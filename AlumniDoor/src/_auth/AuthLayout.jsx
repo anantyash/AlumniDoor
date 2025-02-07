@@ -1,19 +1,20 @@
 import React from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useParams } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import NavBar from "../components/NavBar";
+import { NavBar, Footer } from "../components/";
 
 function AuthLayout() {
-  const {isAuth} = useUser()
-  
+  const { isAuth } = useUser();
+  const { userid } = useParams();
   return (
     <>
       {!isAuth ? (
-        <Navigate to="/login" />
+        <Navigate to="/" />
       ) : (
         <>
-        <NavBar page='Dashboard'/>
+          <NavBar page="Dashboard" userId={userid} />
           <Outlet />
+          <Footer />
         </>
       )}
     </>

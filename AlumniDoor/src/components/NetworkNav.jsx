@@ -1,5 +1,5 @@
-import React from "react";
-import { IconButton, InputBase } from "@mui/material";
+import React, { useState } from "react";
+import { CircularProgress, IconButton, InputBase } from "@mui/material";
 import { NavLink, useParams } from "react-router-dom";
 
 import {
@@ -9,14 +9,16 @@ import {
   ChatIcon,
   SearchIcon,
 } from "../assets/iconIndex";
+import { use } from "react";
 
 function NetworkNav() {
   const { userid } = useParams();
+  const [loader, setloader] = useState();
 
   return (
     <>
       <div //For Second Navigation
-        className=" flex -mt-4 mb-4 shadow-lg sticky top-20 md:top-24 z-30 md:bg-white"
+        className=" flex -mt-4 mb-4 shadow-lg sticky top-24 z-30 md:bg-white"
       >
         <nav className="w-full flex bg-green-900 justify-center sticky bottom-0">
           <ul className=" flex justify-evenly w-full font-bold list-none p-2">
@@ -35,7 +37,7 @@ function NetworkNav() {
             {/* Home */}
             <li>
               <NavLink
-                to={`home/${userid}`}
+                to={`home`}
                 className={({ isActive }) =>
                   isActive
                     ? " [&>*]:bg-green-800 shadow-xl "
@@ -52,12 +54,13 @@ function NetworkNav() {
             {/* Alumni-Directory */}
             <li>
               <NavLink
-                to={"alumni-directory"}
+                to={`alumni-directory`}
                 className={({ isActive }) =>
                   isActive
                     ? " [&>*]:bg-green-800 shadow-xl "
                     : " [&>*]:bg-green-900"
                 }
+                // viewTransition
               >
                 <IconButton className="  gap-2 text-white md:rounded-md hover:bg-green-800 hover:shadow-xl text-lg font-semibold">
                   <PeopleIcon />
@@ -71,7 +74,7 @@ function NetworkNav() {
             {/* Chat */}
             <li>
               <NavLink
-                to={`messages/${userid}`}
+                to={`messages`}
                 className={({ isActive }) =>
                   isActive
                     ? " [&>*]:bg-green-800 shadow-xl "

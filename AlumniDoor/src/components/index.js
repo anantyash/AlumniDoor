@@ -2,24 +2,30 @@ import NavBar from "./NavBar";
 import HeroSection from "./HeroSection";
 import QuickLinks from "./QuickLinks";
 import Footer from "./Footer";
-import ProfileCard from "./ProfileCard";
+import UserCard from "./UserCard";
 import NetworkNav from "./NetworkNav";
 import ChattingArea from "./ChattingArea";
+import ChatBox from "./ChatBox";
 import LogOut from "./LogOut";
 import EditProfile from "./EditProfile";
 import Post from "./Post";
-import MentorCard from "./MentorCard";
+import ProfileCard from "./ProfileCard";
+import FilterCheckbox from "./FilterCheckbox";
+import InfoCard from "./InfoCard";
 
 export {
   NavBar,
   HeroSection,
   QuickLinks,
   Footer,
-  ProfileCard,
+  UserCard,
   NetworkNav,
   ChattingArea,
   LogOut,
   EditProfile,
   Post,
-  MentorCard,
+  ProfileCard,
+  FilterCheckbox,
+  InfoCard,
+  ChatBox,
 };

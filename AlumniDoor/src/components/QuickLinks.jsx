@@ -9,7 +9,7 @@ import {
   ALUMNIDOOR39,
   ALUMNIDOOR50,
   ALUMNIDOOR7,
-} from "../assets";
+} from "../assets/Images";
 
 function QuickLinks() {
   return (

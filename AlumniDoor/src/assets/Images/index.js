@@ -8,7 +8,7 @@ import ALUMNIDOOR7 from "./AlumniPics/ALUMNIDOOR (7).png";
 import ALUMNIDOOR8 from "./AlumniPics/ALUMNIDOOR (8).png";
 import ALUMNIDOOR9 from "./AlumniPics/ALUMNIDOOR (9).png";
 import ALUMNIDOOR10 from "./AlumniPics/ALUMNIDOOR (10).png";
-import ALUMNIDOOR11 from "./AlumniPics/ALUMNIDOOR (11).png";
+// import ALUMNIDOOR11 from "./AlumniPics/ALUMNIDOOR (11).png";
 import ALUMNIDOOR12 from "./AlumniPics/ALUMNIDOOR (12).png";
 import ALUMNIDOOR13 from "./AlumniPics/ALUMNIDOOR (13).png";
 import ALUMNIDOOR14 from "./AlumniPics/ALUMNIDOOR (14).png";
@@ -75,7 +75,7 @@ export {
   ALUMNIDOOR8,
   ALUMNIDOOR9,
   ALUMNIDOOR10,
-  ALUMNIDOOR11,
+  // ALUMNIDOOR11,
   ALUMNIDOOR12,
   ALUMNIDOOR13,
   ALUMNIDOOR14,

@@ -1,5 +1,5 @@
 import React from "react";
-import { landingimg } from "../assets";
+import { landingimg } from "../assets/Images";
 import { Button } from "@mui/material";
 
 function HeroSection() {
@@ -13,7 +13,7 @@ function HeroSection() {
         <h1 className="text-6xl text-brown ">Connect. Inspire. Thrive.</h1>
         <p className="  text-lg px-10 font-sans ">
           <span className="font-medium text-xl">
-            Empowering Connections, Inspiring Success: {" "}
+            Empowering Connections, Inspiring Success:{" "}
           </span>
           Our platform strengthens the bond between alumni and students,
           fostering a vibrant community that celebrates achievements, cultivates
