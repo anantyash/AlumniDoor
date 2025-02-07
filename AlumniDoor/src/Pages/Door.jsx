@@ -21,19 +21,11 @@ import {
 } from "../assets/Images";
 
 import {
-  BadgeIcon,
-  CloseIcon,
   Diversity2Icon,
   FaDonate,
-  LogoutIcon,
   KeyboardArrowRightIcon,
-  ModeEditOutlineRoundedIcon,
   RiRobot2Fill,
   SiCodementor,
-  WorkspacePremiumIcon,
-  SchoolIcon,
-  // CardMembershipIcon,
-  StarsIcon,
 } from "../assets/iconIndex";
 
 import { LogOut, UserCard } from "../components";
@@ -55,8 +47,6 @@ function Door() {
   useEffect(() => {
     setLoader(true);
     fetchUserData();
-    // user = users.find((user) => user.id === userid);
-    // console.log(user);
   }, [updateUser]);
 
   return (
@@ -88,22 +78,20 @@ function Door() {
                   <Diversity2Icon className="text-greenColor" /> Networking Hub
                 </NavLink>
                 <Link to={`/mentorship-program/${user.id}/`}>
-                  <SiCodementor className="text-greenColor text-2xl self-center " />{" "}
+                  <SiCodementor className="text-greenColor text-2xl self-center " />
                   Mentorship Program
                 </Link>
                 <Link to={`/donation-portal/${user.id}`}>
-                  <FaDonate className="text-greenColor text-xl self-center ml-1  " />{" "}
+                  <FaDonate className="text-greenColor text-xl self-center ml-1  " />
                   Donation Portal
                 </Link>
                 <Link to={`/support/${user.id}`}>
-                  {/* <SupportAgentIcon className="text-greenColor" />  */}
                   <RiRobot2Fill className="text-greenColor text-xl self-center ml-1  " />
                   Support & Feedback
                 </Link>
               </div>
               <Divider className="mt-10 mb-5" flexItem variant="middle" />
               <LogOut className="self-start ml-4 mb-2 hover:text-greenTextColor hover:bg-transparent " />
-              {/*  */}
             </div>
           </div>
 
@@ -114,7 +102,6 @@ function Door() {
               className=" w-full md:ml-5 font-sans text-left relative top-4 p-6 rounded-xl "
             >
               <h3 className="  font-semibold text-xl">
-                {" "}
                 <span className="text-3xl flex flex-col font-extrabold font-serif pr-2 text-greenColor mb-1 ">
                   Welcome to Door:
                 </span>
@@ -122,10 +109,6 @@ function Door() {
               </h3>
             </div>
             <Divider className="my-1 mx-10" variant="middle" flexItem />
-            {/* <p className=" text-center text-lg ">
-              Empowering you to engage, support, and thrive with the Alumni
-              Network
-            </p> */}
 
             <div //Cards Section
               className="w-fit md:w-fit h-fit mt-4 p-8 pt-0 flex flex-wrap rounded-xl gap-16 justify-around  hover:[&>*]:drop-shadow-2xl  "
