@@ -76,9 +76,7 @@ function AlumniDirectory() {
             <h3 className="text-2xl justify-self-start text-left  font-bold text-gray-800">
               Hey, {user.fullName}
             </h3>
-            {/* <h2 className="text-2xl justify-self-start font-semibold text-gray-800">
-            Welcome to Alumni Directory
-          </h2> */}
+         
             <p className="text-lg text-gray-600">
               Here you can connect with Alumni, Mentors, and Students.
             </p>

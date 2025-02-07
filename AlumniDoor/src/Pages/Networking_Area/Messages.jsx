@@ -15,11 +15,10 @@ import { ALUMNIDOOR49, logoIcon } from "../../assets/Images";
 
 import dbService from "../../services/AD_DB/userDB";
 import { NavLink, Outlet, useParams } from "react-router-dom";
-import { useUser } from "../../context/UserContext";
 
 function Messages() {
   const { userid, messageid } = useParams();
-  const { newUser, users } = useUser();
+
   const viewTopRef = useRef(null);
   const [msgAccUser, setMsgAccUser] = useState([]);
   const [searchUser, setSearchUser] = useState([]);
@@ -82,7 +81,7 @@ function Messages() {
         </div>
 
         <div
-        ref={viewTopRef}
+          ref={viewTopRef}
           id="userList"
           className="w-full gap-2 pb-5 px-3 pt-2 flex flex-col overflow-y-scroll scrollbar-none"
         >
@@ -151,10 +150,6 @@ function Messages() {
               )}
 
               {searchUser.map((msag) => (
-                // <div
-                //   key={msag.$id}
-                //   className="w-full   flex flex-col items-center"
-                // >
                 <NavLink
                   to={`${msag.$id}/`}
                   state={{
@@ -182,7 +177,6 @@ function Messages() {
                     </div>
                   </div>
                 </NavLink>
-                // </div>
               ))}
             </div>
           ) : (

@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Button,
-  Chip,
   CircularProgress,
   Divider,
   IconButton,
   InputAdornment,
   LinearProgress,
-  Link,
   TextField,
 } from "@mui/material";
 
@@ -16,16 +14,7 @@ import { avatarimg } from "../../assets/Images";
 
 import {
   AddPhotoAlternateOutlinedIcon,
-  BadgeIcon,
-  FavoriteBorderIcon,
-  FavoriteIcon,
-  LogoutIcon,
-  ModeCommentOutlinedIcon,
-  SchoolIcon,
   SendIcon,
-  ShareIcon,
-  StarsIcon,
-  WorkspacePremiumIcon,
 } from "../../assets/iconIndex";
 
 import { usePost } from "../../context/PostContext";
@@ -58,26 +47,23 @@ function Network_Home() {
     // return user;
   };
 
-  if (!user) {
-    return (
-      <div className="flex flex-col h-52 bg-neutral-100 gap-6 p-5 justify-center items-center">
-        <h3 className="text-3xl">
-          <span className="text-red-600">Error 404: </span>User not found
-        </h3>
-        <Button
-          className=" hover:bg-transparent font-sans font-semibold underline capitalize"
-          variant="text"
-          onClick={() => navigate("/signup")}
-        >
-          Click here to Login again
-        </Button>
+  // if (!user) {
+  //   return (
+  //     <div className="flex flex-col h-52 bg-neutral-100 gap-6 p-5 justify-center items-center">
+  //       <h3 className="text-3xl">
+  //         <span className="text-red-600">Error 404: </span>User not found
+  //       </h3>
+  //       <Button
+  //         className=" hover:bg-transparent font-sans font-semibold underline capitalize"
+  //         variant="text"
+  //         onClick={() => navigate("/signup")}
+  //       >
+  //         Click here to Login again
+  //       </Button>
 
-        {/* <Link className=" text-blue-600">
-          Click here to Login again
-        </Link> */}
-      </div>
-    );
-  }
+  //     </div>
+  //   );
+  // }
 
   const handlePostSubmit = () => {
     setPostLoader(true);
