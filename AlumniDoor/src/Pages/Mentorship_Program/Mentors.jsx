@@ -106,10 +106,9 @@ const Mentors = () => {
               <h3>Filters</h3>
             </div>
             <Divider className="mb-3" />
-            {/* <form action="" onsubmit={handleFilter} className="w-full"> */}
+
             <TextField
               className="text-base"
-              // label="Find Your Mentor"
               placeholder="Find Your Mentor"
               color="success"
               variant="outlined"

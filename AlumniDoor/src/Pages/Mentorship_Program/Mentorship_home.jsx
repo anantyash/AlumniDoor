@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { mentoringimg, ALUMNIDOOR49 } from "../../assets/Images";
+import { mentoringimg } from "../../assets/Images";
 
 import {
   Button,
@@ -43,11 +43,6 @@ function Mentorship_home() {
         <div //Left part container
           className=" flex flex-col justify-center gap-5 text-center md:text-left md:pl-20 h-auto"
         >
-          {/* <p className="text-2xl text-brown font-semibold font-sans py-5">
-            Learn a new skill, <br />
-            Launch a project, <br />
-            Land your dream career.
-          </p> */}
           <h3 className="text-6xl pb-10 w-[150%] ">
             Your Mentor, Your Journey
           </h3>
@@ -125,6 +120,8 @@ function Mentorship_home() {
           Browse all Mentor
         </Button>
       </div>
+
+      {/* ----------------- Modal for Steps ------------------ */}
 
       {/* <div className="right-14 max-w-[500px] bottom-20 sticky inline-block float-right p-2 rounded-lg bg-greenBgColor">
         <p>
