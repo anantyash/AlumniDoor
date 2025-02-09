@@ -16,9 +16,9 @@ AlumniDoor is an innovative platform designed to connect alumni with each other 
 - **Mentorship Programs**: Pair alumni with students for guidance and support.
 - **Networking Feed**: Share thoughts, updates, and experiences with the community.
 
-### Learning Challenges as a Frontend Developer
+## Learning Challenges as a Frontend Developer
 
-As a frontend developer working on AlumniDoor, you may encounter the following learning challenges:
+As a frontend developer working on AlumniDoor, I encounter the following learning challenges:
 
 - **State Management**: "State management is a complex task, but the Context API has made it significantly easier to handle. As a frontend developer, my goal is to leverage the React.js framework to its fullest potential. One of the challenges I face is effectively managing components and ensuring they are properly controlled by their parent components."
 
