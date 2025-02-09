@@ -27,7 +27,7 @@ function Network_Home() {
   const navigate = useNavigate();
   const { userid } = useParams();
   const { users } = useUser();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
   const { posts, newPost, updatePost } = usePost();
   const [postContent, setPostContent] = useState("");
   const [loader, setLoader] = useState(Boolean);
