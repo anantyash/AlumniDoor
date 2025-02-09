@@ -1,10 +1,8 @@
 # AlumniDoor
 
-```markdown
-<div style="background-color: #f0f0f0; padding: 10px;">
+<div style="background-color: #ffffff; padding: 10px;">
     <img src="AlumniDoor/src/assets/Images/Logo1.png" alt="AlumniDoor Logo">
 </div>
-```
 
 We are excited to announce that **AlumniDoor** is on the way! This innovative platform is being developed to connect alumni with each other and current students, creating a vibrant community for networking, mentorship, and collaboration.
 
