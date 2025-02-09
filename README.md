@@ -20,12 +20,16 @@ AlumniDoor is an innovative platform designed to connect alumni with each other 
 
 As a frontend developer working on AlumniDoor, you may encounter the following learning challenges:
 
-- **State Management**: Understanding and implementing state management using Context API to handle complex application states.
+- **State Management**: "State management is a complex task, but the Context API has made it significantly easier to handle. As a frontend developer, my goal is to leverage the React.js framework to its fullest potential. One of the challenges I face is effectively managing components and ensuring they are properly controlled by their parent components."
+
 - **Responsive Design**: Designing and implementing responsive user interfaces with Material-UI and Tailwind CSS to ensure a seamless experience across different devices.
-- **Routing**: Implementing navigation and routing in the application using React Router.
+
+- **Routing**: Routing presented one of the most significant challenges and learning opportunities as a software developer. Deciding how to effectively route pages was a complex task, and I encountered several major errors along the way. However, by thoroughly reviewing the documentation and exploring community articles, I was able to resolve these issues and gain a deeper understanding of the process.
+
 - **Component Lifecycle**: Gaining a deep understanding of React component lifecycle methods and hooks to manage component behavior and state.
 
 - **Post Management**: Implementing features to create, edit, delete, and display posts efficiently. Ensuring that posts are displayed in real-time and managing the state of posts across different components.
+
 - **Message Management**: Developing a robust messaging system that allows users to send and receive messages in real-time.
 
 These challenges provide additional opportunities to enhance your skills in managing dynamic content and real-time communication in web applications.
