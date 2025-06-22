@@ -12,6 +12,10 @@ import {
   CircularProgress,
   Divider,
   FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
   FormHelperText,
   InputAdornment,
   InputLabel,
@@ -44,20 +48,21 @@ const initialValues = {
   terms: false,
   mentor: "No",
   company: "",
+  gen: "",
 };
 
 // Create for file upload Button
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+// const VisuallyHiddenInput = styled("input")({
+//   clip: "rect(0 0 0 0)",
+//   clipPath: "inset(50%)",
+//   height: 1,
+//   overflow: "hidden",
+//   position: "absolute",
+//   bottom: 0,
+//   left: 0,
+//   whiteSpace: "nowrap",
+//   width: 1,
+// });
 
 function SignUp() {
   const navigate = useNavigate();
@@ -82,13 +87,16 @@ function SignUp() {
               values.graduationYear,
               values.degree,
               values.currentProfession,
-              values.confirmPassword
+              values.confirmPassword,
+              values.gen
             )
             .then((userAccount) => {
               if (userAccount) {
                 setLoader(false);
                 setSubmitStatus("Success"); // for successful message
                 const userId = userAccount.$id;
+
+                // setting up the context API
                 newUser({
                   id: userAccount.$id,
                   userType: userAccount.userType,
@@ -99,6 +107,11 @@ function SignUp() {
                   degree: userAccount.degree,
                   currentProfession: userAccount.currentProfession,
                   mentor: userAccount.mentor,
+                  gen: userAccount.gen,
+                  profilePictureUrl:
+                    userAccount.gen === "female"
+                      ? "ALUMNIDOOR39"
+                      : "ALUMNIDOOR49",
                   // //   location: userAccount.location,
                   // //   password: userAccount.password,
                   // //   profilePicture: "",
@@ -265,7 +278,7 @@ function SignUp() {
                   error={touched.phoneNo && errors.phoneNo}
                   helperText={touched.phoneNo && errors.phoneNo}
                 />
-                <FormControl className="flex gap-2 font-sans items-start p-2 md:right-9">
+                {/* <FormControl className="flex gap-2 font-sans items-start p-2 md:right-9">
                   <label htmlFor="profilePicture" className="text-sm">
                     {" "}
                     Profile Photo :
@@ -293,6 +306,56 @@ function SignUp() {
                       Selected File: {values.profilePicture.name}
                     </div>
                   )}
+                </FormControl> */}
+                {/* 
+                <FormControl className="flex gap-2 font-sans items-start p-2 md:right-9">
+                  <FormLabel id="gender">Gender</FormLabel>
+                  <RadioGroup
+                    row
+                    aria-labelledby="gender"
+                    name="row-radio-buttons-group"
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio />}
+                      label="Female"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio />}
+                      label="Male"
+                    />
+                  </RadioGroup>
+                </FormControl> */}
+
+                <FormControl // Gender
+                  variant="standard"
+                  color="success"
+                  sx={{ minWidth: 200, maxWidth: 200 }}
+                >
+                  <FormLabel className="self-start text-gray-500" id="gen">
+                    Gender
+                  </FormLabel>
+                  <RadioGroup
+                    row
+                    value={values.gen}
+                    name="gen"
+                    onChange={handleChange}
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio />}
+                      label="Female"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio />}
+                      label="Male"
+                    />
+                  </RadioGroup>
+                  <FormHelperText className="text-red-600">
+                    {touched.gen && errors.gen}
+                  </FormHelperText>
                 </FormControl>
               </div>
               <h4 className="justify-self-start text-gray-600 font-sans mt-4 cursor-default">

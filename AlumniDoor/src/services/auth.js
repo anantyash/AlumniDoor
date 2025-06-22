@@ -28,7 +28,8 @@ export class AuthService {
     graduationYear,
     degree,
     currentProfession,
-    password
+    password,
+    gen
   ) {
     // yehan pe jitne createAccount se hum object pass krwa sakte hai , usse destructure kr ke bhi pass krwa sakte hai
 
@@ -41,7 +42,7 @@ export class AuthService {
         password,
         fullName
       );
-  
+
       if (userAccount) {
         // console.log("success");
         const response = await dbService.createUser(
@@ -51,7 +52,8 @@ export class AuthService {
           phoneNo,
           graduationYear,
           degree,
-          currentProfession
+          currentProfession,
+          gen
         );
         await this.login({ email, password });
         return response;

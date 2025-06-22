@@ -11,7 +11,7 @@ import {
   VerifiedIcon,
   WorkspacePremiumIcon,
 } from "../../assets/iconIndex";
-import { ALUMNIDOOR49, logoIcon } from "../../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49, logoIcon } from "../../assets/Images";
 
 import dbService from "../../services/AD_DB/userDB";
 import { NavLink, Outlet, useParams } from "react-router-dom";
@@ -156,6 +156,8 @@ function Messages() {
                     senderName: msag.fullName,
                     senderUserType: msag.userType,
                     senderIsMentor: msag.mentor,
+                    senderImg:
+                      msag.gen === "female" ? "ALUMNIDOOR39" : "ALUMNIDOOR49",
                   }}
                   className={({ isActive }) =>
                     isActive
@@ -165,7 +167,10 @@ function Messages() {
                   onClick={() => scrollToTop(msag.$id)}
                 >
                   <div className="flex w-[100%] hover:bg-greenTextColor p-2 gap-3 rounded-2xl cursor-pointer">
-                    <Avatar className="w-12 h-12" src={ALUMNIDOOR49} />
+                    <Avatar
+                      className="w-12 h-12"
+                      src={msag.gen === "female" ? ALUMNIDOOR39 : ALUMNIDOOR49}
+                    />
                     <div className="flex flex-col h-full justify-center font-sans">
                       <h4 className="line-clamp-1">{msag.fullName}</h4>
                       <span className="flex text-sm items-center gap-1">

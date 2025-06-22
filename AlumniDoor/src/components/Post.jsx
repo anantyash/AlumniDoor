@@ -7,20 +7,18 @@ import {
   ShareIcon,
   WorkspacePremiumIcon,
 } from "../assets/iconIndex";
-import { avatarimg } from "../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49 } from "../assets/Images";
 
 function Post({ post = {} }, ref) {
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   // setLikeCount(post.like);
 
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
   return (
-    <div
-      className="w-full rounded-lg flex flex-col"
-      ref={ref}
-    >
+    <div className="w-full rounded-lg flex flex-col" ref={ref}>
       <div className="flex gap-4 items-center py-3 px-5 rounded-t-lg">
-        <Avatar className="text-sm" src={avatarimg} />
+        <Avatar className="text-sm" src={pfp[post.imgurl]} />
         <div className=" flex flex-col ">
           <span className="font-semibold font-sans text-md ">
             {/* Prince Kumar */}

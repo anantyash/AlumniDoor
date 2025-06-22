@@ -1,6 +1,6 @@
 import { Avatar, Chip, IconButton, Tooltip } from "@mui/material";
 import React, { forwardRef, useEffect, useState } from "react";
-import { avatarimg } from "../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49, avatarimg } from "../assets/Images";
 import {
   BadgeIcon,
   ModeEditOutlineRoundedIcon,
@@ -10,14 +10,16 @@ import {
 } from "../assets/iconIndex";
 
 import { EditProfile } from "./index";
-
 function UserCard({ user = {}, edit = false }, ref) {
   const [openEdit, setOpenEdit] = useState(false);
+
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
 
   useEffect(() => {
     //just rerender
   }, [openEdit]);
 
+  // console.log("PFP:", user.profilePictureUrl);
   return (
     <>
       {edit ? (
@@ -43,7 +45,10 @@ function UserCard({ user = {}, edit = false }, ref) {
         ref={ref}
       >
         <div className="text-center items-center flex flex-col mb-3  ">
-          <Avatar className="w-20 h-auto mb-2" src={avatarimg} />
+          <Avatar
+            className="w-20 h-auto mb-2"
+            src={pfp[user.profilePictureUrl]}
+          />
           <span className="font-semibold font-sans text-xl ">
             {user.fullName}
           </span>

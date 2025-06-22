@@ -10,7 +10,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import { avatarimg } from "../../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49 } from "../../assets/Images";
 
 import {
   AddPhotoAlternateOutlinedIcon,
@@ -35,6 +35,8 @@ function Network_Home() {
 
   const [value, setValue] = useState(0);
   const charLimit = 250;
+
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
 
   useEffect(() => {
     setLoader(true);
@@ -72,7 +74,7 @@ function Network_Home() {
       newPost({
         id: postid,
         content: postContent,
-        imgurl: "",
+        imgurl: user.profilePictureUrl,
         userName: user.fullName,
         userType: user.userType,
         like: 0,
@@ -107,7 +109,7 @@ function Network_Home() {
             <div className="bg-white flex flex-col gap-1 justify-center w-full py-6 rounded-lg shadow-lg">
               <div className="flex gap-3 pl-3">
                 <IconButton>
-                  <Avatar src={avatarimg} />
+                  <Avatar src={pfp[user.profilePictureUrl]} />
                 </IconButton>
 
                 <TextField

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { logo, avatarimg } from "../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49, logo } from "../assets/Images";
 
 import {
   Button,
@@ -10,6 +10,7 @@ import {
   Chip,
   Tooltip,
 } from "@mui/material";
+
 import {
   CloseIcon,
   NotificationsIcon,
@@ -34,8 +35,10 @@ const NavBar = ({ page, userId }) => {
 
   const [openMenu, setOpenMenu] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
-  
+
   let user = users.find((user) => user.id === userId);
+
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
 
   return (
     <>
@@ -251,13 +254,13 @@ const NavBar = ({ page, userId }) => {
                 <MeetingRoomIcon className="md:text-3xl" />
               </IconButton>
             </Tooltip>
-            <Tooltip title={"Notificaton"} arrow={true}>
+            {/* <Tooltip title={"Notificaton"} arrow={true}>
               <IconButton //Notification
                 className="text-green-800 hover:bg-greenlightColor md:mr-4"
               >
                 <NotificationsIcon className="md:text-3xl" />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip title={"View Profile"} arrow={true}>
               <IconButton //Avatar
                 className="text-green-800 md:mr-4 gap-2 rounded-full pr-3 md:bg-greenlightColor"
@@ -265,7 +268,10 @@ const NavBar = ({ page, userId }) => {
                   setOpenDrawer(true);
                 }}
               >
-                <Avatar alt="Avatar Placeholder " src={avatarimg} />
+                <Avatar
+                  alt="Avatar Placeholder "
+                  src={pfp[user.profilePictureUrl]}
+                />
                 <span className=" hidden md:inline-block text-base pb-1 font-sans font-semibold self-center">
                   Hii, {user.fullName.split(" ", 1)}
                 </span>
@@ -293,7 +299,7 @@ const NavBar = ({ page, userId }) => {
                   <Avatar
                     className=" w-20 h-20 self-center"
                     alt="Avatar Placeholder "
-                    src={avatarimg}
+                    src={pfp[user.profilePictureUrl]}
                   />
                   <div className=" w-fit flex flex-col p-2">
                     {" "}

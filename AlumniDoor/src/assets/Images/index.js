@@ -36,7 +36,7 @@ import ALUMNIDOOR35 from "./AlumniPics/ALUMNIDOOR (35).png";
 import ALUMNIDOOR36 from "./AlumniPics/ALUMNIDOOR (36).png";
 import ALUMNIDOOR37 from "./AlumniPics/ALUMNIDOOR (37).png";
 import ALUMNIDOOR38 from "./AlumniPics/ALUMNIDOOR (38).png";
-import ALUMNIDOOR39 from "./AlumniPics/ALUMNIDOOR (39).png";
+import ALUMNIDOOR39 from "./AlumniPics/ALUMNIDOOR-(39).png";
 import ALUMNIDOOR40 from "./AlumniPics/ALUMNIDOOR (40).png";
 import ALUMNIDOOR41 from "./AlumniPics/ALUMNIDOOR (41).png";
 import ALUMNIDOOR42 from "./AlumniPics/ALUMNIDOOR (42).png";

@@ -26,13 +26,13 @@ import {
   profession,
 } from "../components/Data";
 import { CloseIcon } from "../assets/iconIndex";
-import { avatarimg } from "../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49, avatarimg } from "../assets/Images";
 import dbService from "../services/AD_DB/userDB";
 
 function EditProfile({ user = {}, open, close }, ref) {
-
   const [profileEdit, setProfileEdit] = useState(false);
   const [personalEdit, setPersonalEdit] = useState(false);
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
 
   const initialValues = {
     userType: user.userType,
@@ -161,7 +161,10 @@ function EditProfile({ user = {}, open, close }, ref) {
 
               <div className="flex gap-6 flex-wrap items-center justify-around md:justify-between p-3">
                 <IconButton>
-                  <Avatar className="w-20 h-auto" src={avatarimg} />
+                  <Avatar
+                    className="w-20 h-auto"
+                    src={pfp[user.profilePictureUrl]}
+                  />
                 </IconButton>
                 <TextField //Full Name
                   id="name"

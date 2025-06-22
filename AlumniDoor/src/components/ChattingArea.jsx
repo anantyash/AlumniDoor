@@ -1,6 +1,6 @@
 import { Avatar, Backdrop, IconButton, InputBase } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
-import { ALUMNIDOOR49 } from "../assets/Images";
+import { ALUMNIDOOR39, ALUMNIDOOR49 } from "../assets/Images";
 import { CloseIcon, SendIcon, WorkspacePremiumIcon } from "../assets/iconIndex";
 import { useMsg } from "../context/MessageContext";
 import { useLocation, useParams } from "react-router-dom";
@@ -18,6 +18,7 @@ function ChattingArea({ className = "", ref }) {
 
   const data = location.state; // reteriving data from state
 
+  const pfp = { ALUMNIDOOR49, ALUMNIDOOR39 };
   const handleSendMsg = () => {
     if (msg.trim()) {
       const msgId = Date.now();
@@ -60,7 +61,7 @@ function ChattingArea({ className = "", ref }) {
           className=" flex w-full text-white pl-2 gap-4 cursor-pointer"
           onClick={handleProfile}
         >
-          <Avatar className="w-14 h-14 " src={ALUMNIDOOR49} />
+          <Avatar className="w-14 h-14 " src={pfp[data.senderImg]} />
           <div className=" flex flex-col justify-center font-sans">
             <h3>{data.senderName}</h3>
             <span className="flex items-center text-base gap-1">

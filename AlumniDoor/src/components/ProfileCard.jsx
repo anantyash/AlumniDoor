@@ -7,15 +7,25 @@ import {
   Chip,
   Divider,
 } from "@mui/material";
-import React from "react";
-import { ALUMNIDOOR49 } from "../assets/Images";
+import React, { useEffect, useState } from "react";
+import { ALUMNIDOOR39, ALUMNIDOOR49 } from "../assets/Images";
+
 import { NavLink } from "react-router-dom";
 
 function ProfileCard({ user = {}, userId, donateAmt = "" }) {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    setImg(user.gen === "female" ? "ALUMNIDOOR39" : "ALUMNIDOOR49");
+  }, [user.gen]);
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
   return (
     <Card className="min-w-64 max-w-72 max-h-fit font-sans flex flex-col justify-center text-center p-3 pt-5 items-center rounded-xl">
       <CardMedia className="p-1  outline outline-greenColor rounded-full">
-        <Avatar className="w-20 h-20 " src={ALUMNIDOOR49} />
+        <Avatar
+          className="w-20 h-20 "
+          src={pfp[user.profilePictureUrl ?? img]}
+        />
       </CardMedia>
       <CardContent>
         <h4>{user.fullName || "Abhishek Sen"}</h4>

@@ -20,7 +20,8 @@ export class DbService {
     phoneNo,
     graduationYear,
     degree,
-    currentProfession
+    currentProfession,
+    gen
   ) {
     try {
       return await this.databases.createDocument(
@@ -35,6 +36,7 @@ export class DbService {
           graduationYear,
           degree,
           currentProfession,
+          gen,
         }
       );
     } catch (error) {
@@ -61,6 +63,7 @@ export class DbService {
           degree: userData.degree,
           currentProfession: userData.currentProfession,
           mentor: userData.mentor,
+          gender: userData.gen,
         };
       } else {
         console.warn("No user found with the provided email.");

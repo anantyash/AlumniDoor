@@ -14,6 +14,10 @@ export const signupSchema = Yup.object({
 
   email: Yup.string().email().required("Invalid email format"),
 
+  gen: Yup.string()
+    .required("Option must be selected")
+    .matches(/[female,male]/),
+
   phoneNo: Yup.string().matches(
     /^[0-9]{10}$/,
     "Mobile number must be exactly 10 digits"
@@ -66,34 +70,34 @@ export const loginSchema = Yup.object({
 });
 
 export const editUserSchema = Yup.object({
-    userType: Yup.string()
-      .nonNullable()
-      .required("Option must be selected")
-      .matches(/[Alumni,Student]/),
+  userType: Yup.string()
+    .nonNullable()
+    .required("Option must be selected")
+    .matches(/[Alumni,Student]/),
 
-    fullName: Yup.string()
-      .strict()
-      .min(2, "Name must be at least 2 characters long")
-      .max(50, "Name must be at most 50 characters long")
-      .required("Name is required"),
+  fullName: Yup.string()
+    .strict()
+    .min(2, "Name must be at least 2 characters long")
+    .max(50, "Name must be at most 50 characters long")
+    .required("Name is required"),
 
-    email: Yup.string().email().required("Invalid email format"),
+  email: Yup.string().email().required("Invalid email format"),
 
-    phoneNo: Yup.string().matches(
-      /^[0-9]{10}$/,
-      "Mobile number must be exactly 10 digits"
-    ),
-    graduationYear: Yup.number(),
+  phoneNo: Yup.string().matches(
+    /^[0-9]{10}$/,
+    "Mobile number must be exactly 10 digits"
+  ),
+  graduationYear: Yup.number(),
 
-    currentProfession: Yup.string().max(50, "Must be in 50 characters"),
+  currentProfession: Yup.string().max(50, "Must be in 50 characters"),
 
-    mentor: Yup.string(),
+  mentor: Yup.string(),
 
-    company: Yup.string(),
+  company: Yup.string(),
 
-    availability: Yup.string().matches(/[Not Available,Message]/),
+  availability: Yup.string().matches(/[Not Available,Message]/),
 
-    skill: Yup.array()
-      .min(1, "At least one skill must be selected")
-      .max(3, "You can select up to 3 skills"),
-  });
+  skill: Yup.array()
+    .min(1, "At least one skill must be selected")
+    .max(3, "You can select up to 3 skills"),
+});

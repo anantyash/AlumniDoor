@@ -15,7 +15,7 @@ import {
   ALUMNIDOOR37,
   ALUMNIDOOR39,
   ALUMNIDOOR47,
-  avatarimg,
+  ALUMNIDOOR49,
 } from "../../assets/Images";
 import { ForumIcon, LinkedInIcon, WorkIcon } from "../../assets/iconIndex";
 import { useParams } from "react-router-dom";
@@ -54,6 +54,7 @@ function AlumniDirectory() {
   const [user, setUser] = useState({});
   // const [loader, setLoader] = useState(true);
 
+  const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
   useEffect(() => {
     fetchUser();
   });
@@ -71,12 +72,12 @@ function AlumniDirectory() {
       // ) : ( */}
       <div className="bg-neutral-100 pt-5 flex flex-col items-center gap-5">
         <div className=" w-4/5 md:w-1/2 flex justify-self-center justify-evenly items-center p-5 bg-white rounded-lg drop-shadow-lg">
-          <Avatar className="w-auto h-20" src={avatarimg} />
+          <Avatar className="w-auto h-20" src={pfp[user.profilePictureUrl]} />
           <div className="text-center flex flex-col font-sans gap-1 ">
             <h3 className="text-2xl justify-self-start text-left  font-bold text-gray-800">
               Hey, {user.fullName}
             </h3>
-         
+
             <p className="text-lg text-gray-600">
               Here you can connect with Alumni, Mentors, and Students.
             </p>

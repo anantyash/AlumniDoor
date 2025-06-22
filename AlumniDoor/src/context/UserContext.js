@@ -18,6 +18,7 @@ export const UserContext = createContext({
       company: " ",
       availability: "",
       skill: [],
+      gen: " ",
       // terms: Boolean,
     },
   ],

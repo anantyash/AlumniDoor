@@ -40,6 +40,9 @@ function LoginPage() {
       const data = await authService.getCurrentUser().then((data) => {
         if (data) {
           setLoginStatus(true);
+
+          // setting up the context api
+
           newUser({
             id: data.id,
             userType: data.userType,
@@ -50,6 +53,9 @@ function LoginPage() {
             degree: data.degree,
             currentProfession: data.currentProfession,
             mentor: data.mentor,
+            gen: data.gender,
+            profilePictureUrl:
+              data.gender === "female" ? "ALUMNIDOOR39" : "ALUMNIDOOR49",
           });
 
           checkAuth(true);
@@ -168,9 +174,9 @@ function LoginPage() {
                 error={touched.password && Boolean(errors.password)}
                 helperText={touched.password && errors.password}
               />
-              <p className="text-left text-xs font-sans text-blue-600 cursor-pointer">
+              {/* <p className="text-left text-xs font-sans text-blue-600 cursor-pointer">
                 Forget Password?
-              </p>
+              </p> */}
 
               <div className=" text-left justify-center mt-4 ">
                 <input
