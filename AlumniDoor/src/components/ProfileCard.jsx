@@ -29,8 +29,8 @@ function ProfileCard({ user = {}, userId, donateAmt = "" }) {
       </CardMedia>
       <CardContent>
         <h4>{user.fullName || "Abhishek Sen"}</h4>
-        <p>Batch {user.graduationYear || "2024"}</p>
         <p>{user.degree || "Computer Science Engineering"}</p>
+        <p>Batch {user.graduationYear || "2024"}</p>
       </CardContent>
       <Chip
         className="font-sans font-semibold mb-3 bg-greenlightColor"

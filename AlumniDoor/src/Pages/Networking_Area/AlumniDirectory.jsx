@@ -92,15 +92,15 @@ function AlumniDirectory() {
             >
               <div className="flex flex-col gap-2 p-5 rounded-br-full h-fit shadow-xl outline outline-4 outline-white bg-greenTextColor cursor-default">
                 <h2>{names[index]}</h2>
-                <p>Batch 2024</p>
                 <span className="flex flex-wrap mr-9">
                   Computer Science Engineering
                 </span>
-                <Chip
+                <p>Batch 2024</p>
+                {/* <Chip
                   icon={<WorkIcon className="text-base  text-black" />}
                   className="w-fit max-w-32 p-2 text-center bg-greenBgColor font-semibold"
                   label={companies[index]}
-                />
+                /> */}
               </div>
               <Avatar
                 className="justify-self-end h-16 w-16 outline outline-2 drop-shadow-xl outline-white -translate-y-28 -translate-x-1"

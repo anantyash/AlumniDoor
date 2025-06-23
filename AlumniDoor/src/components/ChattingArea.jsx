@@ -76,7 +76,7 @@ function ChattingArea({ className = "", ref }) {
         </div>
       </div>
 
-      {userData && (
+      {/* {userData && (
         <Backdrop aria-hidden={false} open={closeProfile} className="z-50">
           <div className="w-fit flex flex-col bg-white z-40 rounded-lg mt-10 drop-shadow-lg">
             <IconButton
@@ -88,7 +88,7 @@ function ChattingArea({ className = "", ref }) {
             <ProfileCard user={userData} />
           </div>
         </Backdrop>
-      )}
+      )} */}
 
       {/* -------------------------------- Body Section ----------------------------------- */}
 
