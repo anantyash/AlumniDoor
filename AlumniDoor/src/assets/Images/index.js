@@ -63,6 +63,7 @@ import avatarimg from "./avatarimg.png";
 import mentoringimg from "./mentoringimg.png";
 import donationimg from "./donationimg.png";
 import logoIcon from "./LogoImg.png";
+import forbidden from "./forbidden.png";
 
 export {
   ALUMNIDOOR1,
@@ -130,4 +131,5 @@ export {
   mentoringimg,
   donationimg,
   logoIcon,
+  forbidden
 };

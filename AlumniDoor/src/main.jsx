@@ -25,6 +25,7 @@ import {
   Mentorship_Layout,
   Networking_Layout,
   Donation_Layout,
+  Error403,
 } from "./Pages";
 
 import AuthLayout from "./_auth/AuthLayout.jsx";
@@ -64,6 +65,7 @@ const router = createBrowserRouter(
         <Route path="donation-portal/:userid" element={<Donation_Layout />}>
           <Route path="" element={<DonationPage />} />
           <Route path="payment/" element={<Payment_Gateway />} />
+          <Route path="error/" element={<Error403 />} />
         </Route>
 
         {/* ----------------- Support Page ------------------ */}

@@ -32,6 +32,7 @@ import dbService from "../services/AD_DB/userDB";
 function EditProfile({ user = {}, open, close }, ref) {
   const [profileEdit, setProfileEdit] = useState(false);
   const [personalEdit, setPersonalEdit] = useState(false);
+  const [professionalEdit, setProfessionalEdit] = useState(false);
   const pfp = { ALUMNIDOOR39, ALUMNIDOOR49 };
 
   const initialValues = {
@@ -42,7 +43,7 @@ function EditProfile({ user = {}, open, close }, ref) {
     graduationYear: user.graduationYear,
     degree: user.degree,
     currentProfession: user.currentProfession,
-
+    linkdnUrl: user.linkdnUrl,
     mentor: user.mentor,
     company: user.company,
     availability: user.availability,
@@ -131,14 +132,19 @@ function EditProfile({ user = {}, open, close }, ref) {
                   // labelId=""
                   id="userType-id"
                   name="userType"
-                  disabled={values.userType === "Alumni"}
+                  // disabled={values.userType === "Alumni"}
                   color="success"
                   onChange={handleChange}
                   value={values.userType}
                   helperText={touched.userType && errors.userType}
                 >
+                  {values.userType !== "Student" && (
+                    <MenuItem value="Mentor">Mentor</MenuItem>
+                  )}
                   <MenuItem value="Alumni">Alumni</MenuItem>
-                  <MenuItem value="Student">Student</MenuItem>
+                  {values.userType === "Student" && (
+                    <MenuItem value="Student">Student</MenuItem>
+                  )}
                 </Select>
               </FormControl>
               <Divider className="my-2 " variant="middle" flexItem />
@@ -262,7 +268,7 @@ function EditProfile({ user = {}, open, close }, ref) {
                   Edit
                 </Button>
               </div>
-              <div className="flex flex-row gap-6 mt-2 flex-wrap justify-around md:justify-between p-3">
+              <div className="flex flex-row gap-6 mt-2 flex-wrap justify-around md:justify-evenly p-3">
                 <FormControl // Graduation Year
                   variant="standard"
                   color="success"
@@ -315,32 +321,6 @@ function EditProfile({ user = {}, open, close }, ref) {
                   </Select>
                 </FormControl>
 
-                <FormControl // Current Profession
-                  variant="standard"
-                  color="success"
-                  disabled={
-                    values.userType === "Student" || personalEdit === false
-                  }
-                  sx={{ minWidth: 200, maxWidth: 200 }}
-                >
-                  <InputLabel id="profession-id">Current Profession</InputLabel>
-                  <Select
-                    className="text-left"
-                    labelId="profession-id"
-                    id="currentProfession"
-                    name="currentProfession"
-                    label="Current Profession "
-                    value={values.currentProfession}
-                    onChange={handleChange}
-                  >
-                    {profession.map((profession) => (
-                      <MenuItem key={profession} value={profession}>
-                        {profession}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-
                 {/* <FormControl //Location
                   variant="standard"
                   disabled={
@@ -372,7 +352,7 @@ function EditProfile({ user = {}, open, close }, ref) {
 
               {/* Mentor Section */}
               <div className="p-1 pt-3">
-                <FormControl
+                {/* <FormControl
                   disabled={values.userType === "Student"}
                   className="flex flex-row gap-2  items-center font-sans"
                 >
@@ -390,63 +370,112 @@ function EditProfile({ user = {}, open, close }, ref) {
                     <MenuItem value={false}>No</MenuItem>
                     <MenuItem value={true}>Yes</MenuItem>
                   </Select>
-                </FormControl>
-                <div className={values.mentor === false ? "hidden" : " "}>
+                </FormControl> */}
+                <div className={values.userType === "Student" ? "hidden" : " "}>
                   <div className="flex mt-3 justify-between items-baseline">
                     <h4 className="justify-self-start text-gray-600 font-sans  cursor-default">
-                      Mentor Section:
+                      Professional Section:
                     </h4>
                     <Button
                       className="justify-self-end"
                       onClick={() => {
-                        // setPersonalEdit(true);
+                        setProfessionalEdit(true);
                       }}
                     >
                       Edit
                     </Button>
                   </div>
                   <div className="flex flex-row gap-6 flex-wrap justify-evenly p-3">
-                    <FormControl //Skill
+                    <FormControl // Current Profession
                       variant="standard"
                       color="success"
-                      sx={{ minWidth: 200, maxWidth: 300 }}
+                      disabled={
+                        values.userType === "Student" ||
+                        professionalEdit === false
+                      }
+                      sx={{ minWidth: 200, maxWidth: 200 }}
                     >
-                      <InputLabel id="skill-label-id">Skills</InputLabel>
+                      <InputLabel id="profession-id">
+                        Current Profession
+                      </InputLabel>
                       <Select
-                        className="text-left flex"
-                        id="skill-id"
-                        name="skill"
-                        color="success"
-                        multiple
+                        className="text-left"
+                        labelId="profession-id"
+                        id="currentProfession"
+                        name="currentProfession"
+                        label="Current Profession "
+                        value={values.currentProfession}
                         onChange={handleChange}
-                        value={values.skill}
-                        renderValue={() => (
-                          <div className="flex flex-row overflow-visible relative gap-0.5"></div>
-                        )}
-                        error={touched.skill && errors.skill}
                       >
-                        {skills.map((skill) => (
-                          <MenuItem key={skill} value={skill}>
-                            <Checkbox checked={values.skill.includes(skill)} />
-                            {skill}
+                        {profession.map((profession) => (
+                          <MenuItem key={profession} value={profession}>
+                            {profession}
                           </MenuItem>
                         ))}
                       </Select>
-                      <FormHelperText
-                        error={touched.skill && Boolean(errors.skill)}
-                      >
-                        {touched.skill && errors.skill}
-                      </FormHelperText>
-                      {
-                        <div className="flex flex-row flex-wrap w-full overflow-visible relative pt-1 gap-1">
-                          {values.skill.map((val) => (
-                            <Chip key={val} label={val} />
-                          ))}
-                        </div>
-                      }
                     </FormControl>
 
-                    <FormControl //Availability
+                    <TextField // Linkedin URL
+                      id="linkdnUrl-id"
+                      name="linkdnUrl"
+                      variant="standard"
+                      type="text"
+                      label="LinkedIn URL"
+                      color="success"
+                      disabled={profileEdit === false}
+                      value={values.linkdnUrl}
+                      onChange={handleChange}
+                      error={touched.linkdnUrl && Boolean(errors.linkdnUrl)}
+                      helperText={touched.linkdnUrl && errors.linkdnUrl}
+
+                      // onBlur={handleBlur}
+                    />
+
+                    {values.userType === "Mentor" && (
+                      <FormControl //Skill
+                        variant="standard"
+                        color="success"
+                        sx={{ minWidth: 200, maxWidth: 300 }}
+                      >
+                        <InputLabel id="skill-label-id">Skills</InputLabel>
+                        <Select
+                          className="text-left flex"
+                          id="skill-id"
+                          name="skill"
+                          color="success"
+                          multiple
+                          onChange={handleChange}
+                          value={values.skill}
+                          renderValue={() => (
+                            <div className="flex flex-row overflow-visible relative gap-0.5"></div>
+                          )}
+                          error={touched.skill && errors.skill}
+                        >
+                          {skills.map((skill) => (
+                            <MenuItem key={skill} value={skill}>
+                              <Checkbox
+                                checked={values.skill.includes(skill)}
+                              />
+                              {skill}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                        <FormHelperText
+                          error={touched.skill && Boolean(errors.skill)}
+                        >
+                          {touched.skill && errors.skill}
+                        </FormHelperText>
+                        {
+                          <div className="flex flex-row flex-wrap w-full overflow-visible relative pt-1 gap-1">
+                            {values.skill.map((val) => (
+                              <Chip key={val} label={val} />
+                            ))}
+                          </div>
+                        }
+                      </FormControl>
+                    )}
+
+                    {/* <FormControl //Availability
                       className={
                         errors.availability
                           ? "flex flex-row gap-2 items-center mb-4 justify-self-center font-sans text-red-600"
@@ -469,7 +498,7 @@ function EditProfile({ user = {}, open, close }, ref) {
                         </MenuItem>
                         <MenuItem value={"Available"}>Available</MenuItem>
                       </Select>
-                    </FormControl>
+                    </FormControl> */}
                   </div>
                 </div>
               </div>

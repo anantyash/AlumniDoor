@@ -13,6 +13,7 @@ import Donation_Layout from "./Donation_Portal/Donation_Layout";
 import DonationPage from "./Donation_Portal/DonationPage";
 import Payment_Gateway from "./Donation_Portal/Payment_Gateway";
 import SupportPage from "./Support-Area/SupportPage";
+import Error403 from "./Error403";
 
 export {
   LandingPage,
@@ -30,4 +31,5 @@ export {
   DonationPage,
   Payment_Gateway,
   SupportPage,
+  Error403,
 };

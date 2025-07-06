@@ -22,7 +22,24 @@ export const signupSchema = Yup.object({
     /^[0-9]{10}$/,
     "Mobile number must be exactly 10 digits"
   ),
+  
   graduationYear: Yup.number(),
+
+  linkdnUrl: Yup.string()
+    .url()
+    .transform((currentValue) => {
+      const doesNotStartWithHttp =
+        currentValue &&
+        !(
+          currentValue.startsWith("http://") ||
+          currentValue.startsWith("https://")
+        );
+
+      if (doesNotStartWithHttp) {
+        return `http://${currentValue}`;
+      }
+      return currentValue;
+    }, "Invalid URL format"),
   // degree: Yup.string().oneOf(courses, 'Invalid Course selected'),
   currentProfession: Yup.string().max(50, "Must be in 50 characters"),
   password: Yup.string()
