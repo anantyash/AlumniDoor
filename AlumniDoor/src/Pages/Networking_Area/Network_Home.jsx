@@ -139,14 +139,14 @@ function Network_Home() {
                 />
 
                 <div className="flex w-fit h-fit p-2 gap-1 justify-around  self-center">
-                  <IconButton
+                  {/* <IconButton
                     className=" rounded-full p-2 w-fit h-fit self-center hover:bg-green-100 text-green-700"
                     size="small"
                   >
                     <AddPhotoAlternateOutlinedIcon />
                   </IconButton>
 
-                  <Divider className=" my-1" orientation="vertical" flexItem />
+                  <Divider className=" my-1" orientation="vertical" flexItem /> */}
 
                   <IconButton
                     className=" rounded-full p-2 w-fit h-fit self-center hover:bg-green-100 text-green-700"

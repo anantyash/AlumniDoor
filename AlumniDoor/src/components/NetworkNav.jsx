@@ -72,7 +72,7 @@ function NetworkNav() {
             </li>
 
             {/* Search Button */}
-            <li className="md:flex hidden">
+            {/* <li className="md:flex hidden">
               <div className=" bg-white h-fit rounded-2xl justify-center">
                 <IconButton>
                   <SearchIcon />
@@ -82,7 +82,7 @@ function NetworkNav() {
                   placeholder="Search here"
                 />
               </div>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>

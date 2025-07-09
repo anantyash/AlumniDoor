@@ -40,7 +40,7 @@ function Door() {
   const [loader, setLoader] = useState(true);
 
   const fetchUserData = () => {
-    setUser(users.find((user) => user.id === userid));  
+    setUser(users.find((user) => user.id === userid));
     setLoader(false);
   };
 
@@ -188,7 +188,7 @@ function Door() {
                     className="text-greenlightColor drop-shadow-2xl font-semibold hover:text-yellow-300"
                     endIcon={<KeyboardArrowRightIcon />}
                     onClick={() => {
-                      navigate("/support");
+                      navigate(`/support/${user.id}`);
                     }}
                   >
                     Get Help

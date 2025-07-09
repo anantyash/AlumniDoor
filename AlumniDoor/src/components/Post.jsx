@@ -39,7 +39,7 @@ function Post({ post = {} }, ref) {
         {/* {post.id} */}
       </div>
       <Divider variant="middle" />
-      <div className="flex flex-row gap-2 justify-between items-center py-2 px-5 rounded-b-lg">
+      <div className="flex flex-row gap-2 justify-evenly items-center py-2 px-5 rounded-b-lg">
         <IconButton onClick={() => setLike(!like)}>
           {like === false ? (
             <FavoriteBorderIcon className=" text-greenColor " />
@@ -48,9 +48,9 @@ function Post({ post = {} }, ref) {
           )}
         </IconButton>
 
-        <IconButton>
+        {/* <IconButton>
           <ModeCommentOutlinedIcon className=" text-greenColor" />
-        </IconButton>
+        </IconButton> */}
         <IconButton className=" flex self-end">
           <ShareIcon className=" text-greenColor" />
         </IconButton>
